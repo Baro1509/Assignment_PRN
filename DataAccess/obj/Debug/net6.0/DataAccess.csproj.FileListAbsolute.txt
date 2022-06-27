@@ -1,0 +1,15 @@
+C:\PRN_Project\SalesManagement\DataAccess\bin\Debug\net6.0\DataAccess.deps.json
+C:\PRN_Project\SalesManagement\DataAccess\bin\Debug\net6.0\DataAccess.runtimeconfig.json
+C:\PRN_Project\SalesManagement\DataAccess\bin\Debug\net6.0\DataAccess.dll
+C:\PRN_Project\SalesManagement\DataAccess\bin\Debug\net6.0\DataAccess.pdb
+C:\PRN_Project\SalesManagement\DataAccess\obj\Debug\net6.0\DataAccess.csproj.AssemblyReference.cache
+C:\PRN_Project\SalesManagement\DataAccess\obj\Debug\net6.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\PRN_Project\SalesManagement\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfoInputs.cache
+C:\PRN_Project\SalesManagement\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfo.cs
+C:\PRN_Project\SalesManagement\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\PRN_Project\SalesManagement\DataAccess\obj\Debug\net6.0\DataAccess.dll
+C:\PRN_Project\SalesManagement\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
+C:\PRN_Project\SalesManagement\DataAccess\obj\Debug\net6.0\DataAccess.pdb
+C:\PRN_Project\SalesManagement\DataAccess\obj\Debug\net6.0\DataAccess.genruntimeconfig.cache
+C:\PRN_Project\SalesManagement\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
+C:\PRN_Project\SalesManagement\DataAccess\bin\Debug\net6.0\appsettings.json
