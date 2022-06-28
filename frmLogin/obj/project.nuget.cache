@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6jLFivR5m2qIoAe5QdkfTis5wXdNW7J5+qXqBjwb2lJHqwxbEC3qJyBNEleEha+tFKkhZKGDlXcJt1/mElZQyg==",
+  "dgSpecHash": "o9AYOdTu3KiCDnrpDn7CUNk1HtvoYgFNzVULFKaFiZlm5CSmz4otKSvMs4x+xONKpHLPd7CZAIamX8dAXMpYTg==",
   "success": true,
-  "projectFilePath": "C:\\PRN_Project\\SalesManagement\\frmLogin\\frmLogin.csproj",
+  "projectFilePath": "C:\\Users\\thong\\Desktop\\Ass02Solution\\frmLogin\\frmLogin.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\thong\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\thong\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",

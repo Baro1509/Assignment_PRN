@@ -2207,11 +2207,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\PRN_Project\\SalesManagement\\DataAccess\\DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\thong\\Desktop\\Ass02Solution\\DataAccess\\DataAccess.csproj",
       "projectName": "DataAccess",
-      "projectPath": "C:\\PRN_Project\\SalesManagement\\DataAccess\\DataAccess.csproj",
+      "projectPath": "C:\\Users\\thong\\Desktop\\Ass02Solution\\DataAccess\\DataAccess.csproj",
       "packagesPath": "C:\\Users\\thong\\.nuget\\packages\\",
-      "outputPath": "C:\\PRN_Project\\SalesManagement\\DataAccess\\obj\\",
+      "outputPath": "C:\\Users\\thong\\Desktop\\Ass02Solution\\DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

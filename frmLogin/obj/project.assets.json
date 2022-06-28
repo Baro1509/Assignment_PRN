@@ -2131,11 +2131,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\PRN_Project\\SalesManagement\\frmLogin\\frmLogin.csproj",
+      "projectUniqueName": "C:\\Users\\thong\\Desktop\\Ass02Solution\\frmLogin\\frmLogin.csproj",
       "projectName": "frmLogin",
-      "projectPath": "C:\\PRN_Project\\SalesManagement\\frmLogin\\frmLogin.csproj",
+      "projectPath": "C:\\Users\\thong\\Desktop\\Ass02Solution\\frmLogin\\frmLogin.csproj",
       "packagesPath": "C:\\Users\\thong\\.nuget\\packages\\",
-      "outputPath": "C:\\PRN_Project\\SalesManagement\\frmLogin\\obj\\",
+      "outputPath": "C:\\Users\\thong\\Desktop\\Ass02Solution\\frmLogin\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2156,8 +2156,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\PRN_Project\\SalesManagement\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "C:\\PRN_Project\\SalesManagement\\DataAccess\\DataAccess.csproj"
+            "C:\\Users\\thong\\Desktop\\Ass02Solution\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\thong\\Desktop\\Ass02Solution\\DataAccess\\DataAccess.csproj"
             }
           }
         }
