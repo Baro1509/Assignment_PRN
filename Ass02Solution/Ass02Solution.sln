@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32602.291
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SalesWinApp", "SalesWinApp", "{D08F7D26-193D-4F9C-9903-2AEFDC79B4DF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessObject", "BusinessObject", "{D5BA3C01-7454-4B2F-9A13-70BB90715F88}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{54C42D64-7C20-444C-A26E-EE741E85F707}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesWinApp", "SalesWinApp\SalesWinApp.csproj", "{88FE8AF5-17F1-4A7E-9A0B-7D55F1A7F564}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{88FE8AF5-17F1-4A7E-9A0B-7D55F1A7F564}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88FE8AF5-17F1-4A7E-9A0B-7D55F1A7F564}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88FE8AF5-17F1-4A7E-9A0B-7D55F1A7F564}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88FE8AF5-17F1-4A7E-9A0B-7D55F1A7F564}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{88FE8AF5-17F1-4A7E-9A0B-7D55F1A7F564} = {D08F7D26-193D-4F9C-9903-2AEFDC79B4DF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F0F011F1-2218-4B6F-A0D2-B7BE284B4E36}
+	EndGlobalSection
+EndGlobal
