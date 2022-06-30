@@ -8,28 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SalesWinApp
-{
-    public partial class frmLogin : Form
-    {
-        public frmLogin()
-        {
+namespace SalesWinApp {
+    public partial class frmLogin : Form {
+        public frmLogin() {
             InitializeComponent();
-        }
-
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
