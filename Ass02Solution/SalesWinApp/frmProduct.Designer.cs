@@ -30,7 +30,7 @@ namespace SalesWinApp
         private void InitializeComponent()
         {
             System.Windows.Forms.TableLayoutPanel tblMember;
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.tblButton = new System.Windows.Forms.TableLayoutPanel();
             this.btnCreate = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
@@ -48,12 +48,12 @@ namespace SalesWinApp
             this.txtUnitPrice = new System.Windows.Forms.TextBox();
             this.lbWeight = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.cbSearch = new System.Windows.Forms.ComboBox();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.cbSearch = new System.Windows.Forms.ComboBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             tblMember = new System.Windows.Forms.TableLayoutPanel();
             tblMember.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.tblButton.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -65,7 +65,7 @@ namespace SalesWinApp
             tblMember.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.625F));
             tblMember.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16F));
             tblMember.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33F));
-            tblMember.Controls.Add(this.dataGridView1, 2, 5);
+            tblMember.Controls.Add(this.dgvProducts, 2, 5);
             tblMember.Controls.Add(this.tblButton, 0, 4);
             tblMember.Controls.Add(this.lbProductName, 0, 3);
             tblMember.Controls.Add(this.lbCategoryId, 0, 2);
@@ -91,20 +91,20 @@ namespace SalesWinApp
             tblMember.RowStyles.Add(new System.Windows.Forms.RowStyle());
             tblMember.RowStyles.Add(new System.Windows.Forms.RowStyle());
             tblMember.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tblMember.Size = new System.Drawing.Size(794, 410);
+            tblMember.Size = new System.Drawing.Size(794, 523);
             tblMember.TabIndex = 5;
             // 
-            // dataGridView1
+            // dgvProducts
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tblMember.SetColumnSpan(this.dataGridView1, 4);
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 199);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(788, 430);
-            this.dataGridView1.TabIndex = 12;
+            this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            tblMember.SetColumnSpan(this.dgvProducts, 4);
+            this.dgvProducts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvProducts.Location = new System.Drawing.Point(3, 199);
+            this.dgvProducts.Name = "dgvProducts";
+            this.dgvProducts.RowHeadersWidth = 51;
+            this.dgvProducts.RowTemplate.Height = 29;
+            this.dgvProducts.Size = new System.Drawing.Size(788, 430);
+            this.dgvProducts.TabIndex = 12;
             // 
             // tblButton
             // 
@@ -286,12 +286,14 @@ namespace SalesWinApp
             this.flowLayoutPanel1.Size = new System.Drawing.Size(788, 34);
             this.flowLayoutPanel1.TabIndex = 17;
             // 
-            // txtSearch
+            // btnSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(278, 3);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(253, 27);
-            this.txtSearch.TabIndex = 1;
+            this.btnSearch.Location = new System.Drawing.Point(681, 3);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(104, 27);
+            this.btnSearch.TabIndex = 2;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // cbSearch
             // 
@@ -307,27 +309,25 @@ namespace SalesWinApp
             this.cbSearch.TabIndex = 0;
             this.cbSearch.Text = "Product ID";
             // 
-            // btnSearch
+            // txtSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(681, 3);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(104, 27);
-            this.btnSearch.TabIndex = 2;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.txtSearch.Location = new System.Drawing.Point(9, 3);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(522, 27);
+            this.txtSearch.TabIndex = 1;
             // 
             // frmProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(794, 410);
+            this.ClientSize = new System.Drawing.Size(794, 523);
             this.Controls.Add(tblMember);
             this.Name = "frmProduct";
             this.Text = "frmProduct";
             this.Load += new System.EventHandler(this.frmProduct_Load);
             tblMember.ResumeLayout(false);
             tblMember.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.tblButton.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
@@ -353,7 +353,7 @@ namespace SalesWinApp
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Button btnLoad;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvProducts;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.ComboBox cbSearch;
         private System.Windows.Forms.TextBox txtSearch;
