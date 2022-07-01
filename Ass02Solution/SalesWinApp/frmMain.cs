@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,7 +44,7 @@ namespace SalesWinApp
 
         private void menuViewOrderHistory_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void menuExit_Click(object sender, EventArgs e)
@@ -63,12 +62,3 @@ namespace SalesWinApp
         }
     }
 }
-=======
-namespace SalesWinApp {
-    public partial class frmMain : Form {
-        public frmMain() {
-            InitializeComponent();
-        }
-    }
-}
->>>>>>> origin/devs_baohlg

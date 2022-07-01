@@ -43,7 +43,6 @@
             this.lbUserName.Size = new System.Drawing.Size(46, 20);
             this.lbUserName.TabIndex = 0;
             this.lbUserName.Text = "Email";
-            this.lbUserName.Click += new System.EventHandler(this.lbUserName_Click);
             // 
             // lbPassword
             // 

@@ -9,11 +9,6 @@ namespace frmLogin
             InitializeComponent();
         }
 
-        private void lbUserName_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void frmLogin_Load(object sender, EventArgs e)
         {
 
@@ -23,10 +18,11 @@ namespace frmLogin
         {
             try
             {
-                if(txtEmail.Text == "")
+                if (txtEmail.Text == "")
                 {
                     MessageBox.Show("Email can't empty!");
-                }else if(txtPassword.Text == "")
+                }
+                else if (txtPassword.Text == "")
                 {
                     MessageBox.Show("Password can't empty!");
                 }
@@ -47,7 +43,8 @@ namespace frmLogin
                         MessageBox.Show("Invalid email or password!");
                     }
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Login");
             }
