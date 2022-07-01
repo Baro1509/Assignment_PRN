@@ -10,13 +10,18 @@ using System.Windows.Forms;
 
 namespace SalesWinApp
 {
-    public partial class frmMembers : Form
+    public partial class frmProducts : Form
     {
-        public frmMembers()
+        public frmProducts()
         {
             InitializeComponent();
         }
-        private void frmMember_Load(object sender, EventArgs e)
+
+        private void frmProduct_Load(object sender, EventArgs e)
+        {
+
+        }
+        private void btnLoad_Click(object sender, EventArgs e)
         {
 
         }
@@ -32,11 +37,6 @@ namespace SalesWinApp
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnLoad_Click(object sender, EventArgs e)
         {
 
         }

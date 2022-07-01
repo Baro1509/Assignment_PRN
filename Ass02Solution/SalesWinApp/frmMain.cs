@@ -25,20 +25,20 @@ namespace SalesWinApp
 
         private void menuManageMember_Click(object sender, EventArgs e)
         {
-            frmMember frmMember = new frmMember();
+            frmMembers frmMember = new frmMembers();
             frmMember.Show();
         }
 
         private void menuManageProduct_Click(object sender, EventArgs e)
         {
-            frmProduct frmProduct = new frmProduct();
+            frmProducts frmProduct = new frmProducts();
             frmProduct.Show();
 
         }
 
         private void menuManageOrder_Click(object sender, EventArgs e)
         {
-            frmOrder frmOrder = new frmOrder();
+            frmOrders frmOrder = new frmOrders();
             frmOrder.Show();
         }
 
