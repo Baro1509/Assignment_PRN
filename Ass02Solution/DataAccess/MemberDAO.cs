@@ -8,11 +8,11 @@ namespace DataAccess
     public class MemberDAO
     {
         [Key]
-        public string email { get; set; }
+        public string Email { get; set; }
 
-        public string password { get; set; }
+        public string Passwords { get; set; }
 
-        public string role { get; set; }
+        public string Role { get; set; }
     }
 
     public class MemberDbContext : DbContext
