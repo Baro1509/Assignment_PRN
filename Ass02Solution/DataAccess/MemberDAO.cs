@@ -15,20 +15,6 @@ namespace DataAccess
         public string Role { get; set; }
     }
 
-    public class MemberDbContext : DbContext
-    {
-        public MemberDbContext() { }
-        public DbSet<Member> Members { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-            IConfiguration configuration = builder.Build();
-            optionsBuilder.UseSqlServer(configuration.GetConnectionString("Ass02DB"));
-        }
-    }
-
     public sealed class MemberManage
     {
         private static MemberManage instance = null;
@@ -53,7 +39,7 @@ namespace DataAccess
             List<Member> members;
             try
             {
-                using MemberDbContext context = new MemberDbContext();
+                using Ass02Context context = new Ass02Context();
                 members = context.Members.ToList();
             }
             catch (Exception ex)
@@ -67,7 +53,7 @@ namespace DataAccess
         {
             try
             {
-                using MemberDbContext context = new MemberDbContext();
+                using Ass02Context context = new Ass02Context();
                 var mem = context.Members.Where(m => m.Email.Equals(member.Email) && m.Passwords.Equals(member.Passwords)).FirstOrDefault();
                 if (mem != null)
                 {

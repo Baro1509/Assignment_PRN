@@ -7,28 +7,22 @@
     <Compile Update="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="frmMember.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="frmMemberDetail.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="frmMembers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="frmOrder.cs">
+    <Compile Update="frmMemberDetails.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="frmOrders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="frmProduct.cs">
+    <Compile Update="frmProducts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="frmProductDetail.cs">
+    <Compile Update="frmProductDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="frmOrderDetail.cs">
+    <Compile Update="frmOrderDetails.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

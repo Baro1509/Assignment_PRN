@@ -15,3 +15,4 @@ D:\Homework\PRN211\Assignment\Assignment_PRN\Ass02Solution\DataAccess\obj\Debug\
 D:\Homework\PRN211\Assignment\Assignment_PRN\Ass02Solution\DataAccess\obj\Debug\net6.0\DataAccess.pdb
 D:\Homework\PRN211\Assignment\Assignment_PRN\Ass02Solution\DataAccess\obj\Debug\net6.0\DataAccess.genruntimeconfig.cache
 D:\Homework\PRN211\Assignment\Assignment_PRN\Ass02Solution\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
+D:\Homework\PRN211\Assignment\Assignment_PRN\Ass02Solution\DataAccess\bin\Debug\net6.0\appsettings.json
