@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "version": 2,
   "dgSpecHash": "rp5C/HhmcG+/BFoBT4cvolh/B6L7KOzEG0tO8tgZV9AuN5Yi7attku9uPa0XsU9JBiCOA2gNbITkB0E51Nk2FA==",
@@ -5,4 +6,13 @@
   "projectFilePath": "D:\\Study\\Summer2022\\PRN211\\Workspaces\\Assignments\\Ass02Solution\\SalesWinApp\\SalesWinApp.csproj",
   "expectedPackageFiles": [],
   "logs": []
+=======
+{
+  "version": 2,
+  "dgSpecHash": "GQWvIjuAoOJi8r7a1U/XaNdbMAouKL8eA3bgBX9P7ZpNk5RDdb3OedWwccNAUsRd8qbM6XsSiWocgKpPrmm3+Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Admin\\Documents\\git\\Assignment_PRN\\Ass02Solution\\SalesWinApp\\SalesWinApp.csproj",
+  "expectedPackageFiles": [],
+  "logs": []
+>>>>>>> origin/devs_baohlg
 }

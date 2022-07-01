@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\thong\\Desktop\\Ass02Solution\\frmLogin\\frmLogin.csproj": {}
+    "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\frmLogin\\frmLogin.csproj": {}
   },
   "projects": {
-    "C:\\Users\\thong\\Desktop\\Ass02Solution\\DataAccess\\DataAccess.csproj": {
+    "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\thong\\Desktop\\Ass02Solution\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "C:\\Users\\thong\\Desktop\\Ass02Solution\\DataAccess\\DataAccess.csproj",
-        "packagesPath": "C:\\Users\\thong\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\thong\\Desktop\\Ass02Solution\\DataAccess\\obj\\",
+        "projectPath": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\DataAccess\\DataAccess.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\thong\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -88,20 +88,20 @@
         }
       }
     },
-    "C:\\Users\\thong\\Desktop\\Ass02Solution\\frmLogin\\frmLogin.csproj": {
+    "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\frmLogin\\frmLogin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\thong\\Desktop\\Ass02Solution\\frmLogin\\frmLogin.csproj",
+        "projectUniqueName": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\frmLogin\\frmLogin.csproj",
         "projectName": "frmLogin",
-        "projectPath": "C:\\Users\\thong\\Desktop\\Ass02Solution\\frmLogin\\frmLogin.csproj",
-        "packagesPath": "C:\\Users\\thong\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\thong\\Desktop\\Ass02Solution\\frmLogin\\obj\\",
+        "projectPath": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\frmLogin\\frmLogin.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\frmLogin\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\thong\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -116,8 +116,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\Users\\thong\\Desktop\\Ass02Solution\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "C:\\Users\\thong\\Desktop\\Ass02Solution\\DataAccess\\DataAccess.csproj"
+              "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\DataAccess\\DataAccess.csproj"
               }
             }
           }

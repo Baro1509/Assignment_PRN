@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -62,3 +63,12 @@ namespace SalesWinApp
         }
     }
 }
+=======
+namespace SalesWinApp {
+    public partial class frmMain : Form {
+        public frmMain() {
+            InitializeComponent();
+        }
+    }
+}
+>>>>>>> origin/devs_baohlg
