@@ -1,0 +1,5 @@
+{
+  "ConnectionString": {
+    "Ass01": "Server = (local);uid=sa;psw=123456;Database=Ass01;TrustServerCertificate=true" 
+  }
+}
