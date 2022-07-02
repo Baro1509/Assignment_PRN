@@ -2220,23 +2220,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ADMIN\\.nuget\\packages\\": {},
-    "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\thong\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\Ass02Solution\\DataAccess\\DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\Ass02Solution\\DataAccess\\DataAccess.csproj",
       "projectName": "DataAccess",
-      "projectPath": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\Ass02Solution\\DataAccess\\DataAccess.csproj",
-      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\Ass02Solution\\DataAccess\\obj\\",
+      "projectPath": "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\Ass02Solution\\DataAccess\\DataAccess.csproj",
+      "packagesPath": "C:\\Users\\thong\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\Ass02Solution\\DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\thong\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2251,8 +2251,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\Ass02Solution\\BusinessObject\\BusinessObject.csproj": {
-              "projectPath": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\Ass02Solution\\BusinessObject\\BusinessObject.csproj"
+            "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\Ass02Solution\\BusinessObject\\BusinessObject.csproj": {
+              "projectPath": "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\Ass02Solution\\BusinessObject\\BusinessObject.csproj"
             }
           }
         }

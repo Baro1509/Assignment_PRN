@@ -38,10 +38,16 @@ public partial class frmLogin : Form
                     Email = txtEmail.Text,
                     Passwords = txtPassword.Text
                 };
-                Boolean check = MemberManage.Instance.checkLogin(member);
-                if (check)
+                string role = MemberDAO.Instance.checkLogin(member);
+                if (!String.IsNullOrEmpty(role))
                 {
-                    MessageBox.Show("Login success!");
+                    var frm = new frmMemberDetails();
+                    frm.Location = this.Location;
+                    frm.StartPosition = FormStartPosition.Manual;
+                    frm.FormClosing += delegate { this.Show(); };
+                    frm.Show();
+                    // frm.ShowDialOG();
+                    this.Hide();
                 }
                 else
                 {

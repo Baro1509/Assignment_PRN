@@ -7,34 +7,9 @@ namespace DataAccess
 {
     public class MemberDAO
     {
-        [Key]
-        public string Email { get; set; }
-
-        public string Passwords { get; set; }
-
-        public string Role { get; set; }
-    }
-
-    public class MemberDbContext : DbContext
-    {
-        public MemberDbContext() { }
-        public DbSet<Member> Members { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-            IConfiguration configuration = builder.Build();
-            optionsBuilder.UseSqlServer(configuration.GetConnectionString("Ass02DB"));
-        }
-    }
-
-    public sealed class MemberManage
-    {
-        private static MemberManage instance = null;
+        private static MemberDAO instance = null;
         private static readonly object instanceLock = new object();
-        private MemberManage() { }
-        public static MemberManage Instance
+        public static MemberDAO Instance
         {
             get
             {
@@ -42,19 +17,21 @@ namespace DataAccess
                 {
                     if (instance == null)
                     {
-                        instance = new MemberManage();
+                        instance = new MemberDAO();
                     }
                     return instance;
                 }
             }
         }
+        public MemberDAO() { }
         public List<Member> GetMembers()
         {
             List<Member> members;
             try
             {
-                using MemberDbContext context = new MemberDbContext();
+                Ass02Context context = new Ass02Context();
                 members = context.Members.ToList();
+
             }
             catch (Exception ex)
             {
@@ -62,24 +39,56 @@ namespace DataAccess
             }
             return members;
         }
-
-        public Boolean checkLogin(Member member)
+        public void Insert(Member member)
         {
             try
             {
-                using MemberDbContext context = new MemberDbContext();
-                var mem = context.Members.Where(m => m.Email.Equals(member.Email) && m.Passwords.Equals(member.Passwords)).FirstOrDefault();
-                if (mem != null)
-                {
-                    return true;
-                }
+                Ass02Context ctx = new Ass02Context();
+                ctx.Members.Add(member);
+                ctx.SaveChanges();
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-            return false;
+        }
 
+        public void Update(Member member)
+        {
+            try
+            {
+                Ass02Context ctx = new Ass02Context();
+                ctx.Entry<Member>(member).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                ctx.SaveChanges();
+            }
+            catch (Exception ex) { throw new Exception(ex.Message); }
+        }
+        public void Delete(Member member)
+        {
+            try
+            {
+                Ass02Context ctx = new Ass02Context();
+                var mem = ctx.Members.FirstOrDefault(x => x.MemberId == member.MemberId);
+                ctx.Members.Remove(mem);
+                ctx.SaveChanges();
+            }
+            catch (Exception ex) { throw new Exception(ex.Message); }
+        }
+
+        public string checkLogin(Member member)
+        {
+            string role="";
+            try
+            {
+                Ass02Context ctx = new Ass02Context();
+                var mem = ctx.Members.Where(m => m.Email.Equals(member.Email) && m.Passwords.Equals(member.Passwords)).FirstOrDefault();
+                if (mem != null)
+                {
+                    role = mem.Role.RoleName;   
+                }
+            }
+            catch (Exception ex) { throw new Exception(ex.Message); }
+            return role;
         }
     }
 }
