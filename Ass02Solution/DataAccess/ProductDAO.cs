@@ -31,6 +31,24 @@ public class ProductDAO
 
     //-------------------------------------------------------------------
 
+    public Product? Get(int productID)
+    {
+        Product? product = null;
+        try
+        {
+            using Ass02Context context = new Ass02Context();
+            product = context.Products.Find(productID);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error in ProductDAO Get: " + ex.Message);
+            throw new Exception(ex.Message);
+        }
+        return product;
+    }
+
+    //-------------------------------------------------------------------
+
     public void Insert(Product product)
     {
         try
@@ -41,16 +59,16 @@ public class ProductDAO
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error in ProductDAO Insert: " + ex.Message);
+            System.Diagnostics.Debug.WriteLine("Error in ProductDAO Insert: " + ex.Message);
             throw new Exception(ex.Message);
         }
     }
 
     //-------------------------------------------------------------------
 
-    public List<Product> GetAllProducts()
+    public List<Product>? GetAllProducts()
     {
-        List<Product> products = null;
+        List<Product>? products = null;
         try
         {
             using Ass02Context context = new Ass02Context();
@@ -66,13 +84,51 @@ public class ProductDAO
 
     //-------------------------------------------------------------------
 
-    public List<Product> GetProducts(string productName)
+    public List<Product>? GetProducts(string productName)
     {
-        List<Product> products = null;
+        List<Product>? products = null;
         try
         {
             using Ass02Context context = new Ass02Context();
-            products = context.Products.SelectMany(context.Products.);
+            products = context.Products.Where(x => x.ProductName.Contains(productName)).ToList();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error in ProductDAO GetProducts: " + ex.Message);
+            throw new Exception(ex.Message);
+        }
+        return products;
+    }
+
+    //-------------------------------------------------------------------
+
+    public void Update(Product product)
+    {
+        try
+        {
+            using Ass02Context context = new Ass02Context();
+            context.Products.Add(product);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error in ProductDAO Update: " + ex.Message);
+            throw new Exception(ex.Message);
+        }
+    }
+
+    //-------------------------------------------------------------------
+
+    public void Delete(Product product)
+    {
+        try
+        {
+            using Ass02Context context = new Ass02Context();
+            context.Remove(product);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error in ProductDAO Delete: " + ex.Message);
+            throw new Exception(ex.Message);
         }
     }
 }

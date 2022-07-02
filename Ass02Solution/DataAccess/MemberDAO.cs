@@ -77,14 +77,14 @@ namespace DataAccess
 
         public string checkLogin(Member member)
         {
-            string role="";
+            string role = "";
             try
             {
                 Ass02Context ctx = new Ass02Context();
                 var mem = ctx.Members.Where(m => m.Email.Equals(member.Email) && m.Passwords.Equals(member.Passwords)).FirstOrDefault();
                 if (mem != null)
                 {
-                    role = mem.Role.RoleName;   
+                    role = mem.RoleId.ToString();
                 }
             }
             catch (Exception ex) { throw new Exception(ex.Message); }

@@ -32,8 +32,8 @@ namespace SalesWinApp
             System.Windows.Forms.TableLayoutPanel tblMember;
             this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.tblButton = new System.Windows.Forms.TableLayoutPanel();
-            this.btnCreate = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.lbProductName = new System.Windows.Forms.Label();
             this.lbCategoryId = new System.Windows.Forms.Label();
@@ -49,7 +49,7 @@ namespace SalesWinApp
             this.lbWeight = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.cbSearch = new System.Windows.Forms.ComboBox();
+            this.cboSearch = new System.Windows.Forms.ComboBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             tblMember = new System.Windows.Forms.TableLayoutPanel();
             tblMember.SuspendLayout();
@@ -105,6 +105,7 @@ namespace SalesWinApp
             this.dgvProducts.RowTemplate.Height = 29;
             this.dgvProducts.Size = new System.Drawing.Size(788, 430);
             this.dgvProducts.TabIndex = 12;
+            this.dgvProducts.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellDoubleClick);
             // 
             // tblButton
             // 
@@ -115,26 +116,15 @@ namespace SalesWinApp
             this.tblButton.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tblButton.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tblButton.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblButton.Controls.Add(this.btnCreate, 1, 0);
             this.tblButton.Controls.Add(this.btnLoad, 0, 0);
-            this.tblButton.Controls.Add(this.btnDelete, 2, 0);
+            this.tblButton.Controls.Add(this.btnCreate, 2, 0);
+            this.tblButton.Controls.Add(this.btnDelete, 1, 0);
             this.tblButton.Location = new System.Drawing.Point(3, 142);
             this.tblButton.Name = "tblButton";
             this.tblButton.RowCount = 1;
             this.tblButton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tblButton.Size = new System.Drawing.Size(788, 51);
             this.tblButton.TabIndex = 16;
-            // 
-            // btnCreate
-            // 
-            this.btnCreate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCreate.Location = new System.Drawing.Point(341, 6);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(104, 38);
-            this.btnCreate.TabIndex = 13;
-            this.btnCreate.Text = "Create";
-            this.btnCreate.UseVisualStyleBackColor = true;
-            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // btnLoad
             // 
@@ -147,10 +137,21 @@ namespace SalesWinApp
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
+            // btnCreate
+            // 
+            this.btnCreate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCreate.Location = new System.Drawing.Point(604, 6);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(104, 38);
+            this.btnCreate.TabIndex = 13;
+            this.btnCreate.Text = "Create";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
+            // 
             // btnDelete
             // 
             this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDelete.Location = new System.Drawing.Point(604, 6);
+            this.btnDelete.Location = new System.Drawing.Point(341, 6);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(104, 38);
             this.btnDelete.TabIndex = 15;
@@ -277,7 +278,7 @@ namespace SalesWinApp
             this.flowLayoutPanel1.AutoSize = true;
             tblMember.SetColumnSpan(this.flowLayoutPanel1, 4);
             this.flowLayoutPanel1.Controls.Add(this.btnSearch);
-            this.flowLayoutPanel1.Controls.Add(this.cbSearch);
+            this.flowLayoutPanel1.Controls.Add(this.cboSearch);
             this.flowLayoutPanel1.Controls.Add(this.txtSearch);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
@@ -294,20 +295,19 @@ namespace SalesWinApp
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // cbSearch
+            // cboSearch
             // 
-            this.cbSearch.FormattingEnabled = true;
-            this.cbSearch.Items.AddRange(new object[] {
+            this.cboSearch.FormattingEnabled = true;
+            this.cboSearch.Items.AddRange(new object[] {
             "Product ID",
-            "Product Name",
-            "Unit price",
-            "Unit in stock"});
-            this.cbSearch.Location = new System.Drawing.Point(537, 3);
-            this.cbSearch.Name = "cbSearch";
-            this.cbSearch.Size = new System.Drawing.Size(138, 28);
-            this.cbSearch.TabIndex = 0;
-            this.cbSearch.Text = "Product ID";
+            "Product Name"});
+            this.cboSearch.Location = new System.Drawing.Point(537, 3);
+            this.cboSearch.Name = "cboSearch";
+            this.cboSearch.Size = new System.Drawing.Size(138, 28);
+            this.cboSearch.TabIndex = 0;
+            this.cboSearch.Text = "Product ID";
             // 
             // txtSearch
             // 
@@ -355,7 +355,7 @@ namespace SalesWinApp
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.DataGridView dgvProducts;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.ComboBox cbSearch;
+        private System.Windows.Forms.ComboBox cboSearch;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
     }
