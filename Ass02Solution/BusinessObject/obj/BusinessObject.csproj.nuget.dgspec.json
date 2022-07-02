@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\Ass02Solution\\BusinessObject\\BusinessObject.csproj": {}
+    "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\Ass02Solution\\BusinessObject\\BusinessObject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\Ass02Solution\\BusinessObject\\BusinessObject.csproj": {
+    "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\Ass02Solution\\BusinessObject\\BusinessObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\Ass02Solution\\BusinessObject\\BusinessObject.csproj",
+        "projectUniqueName": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\Ass02Solution\\BusinessObject\\BusinessObject.csproj",
         "projectName": "BusinessObject",
-        "projectPath": "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\Ass02Solution\\BusinessObject\\BusinessObject.csproj",
-        "packagesPath": "C:\\Users\\thong\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\Ass02Solution\\BusinessObject\\obj\\",
+        "projectPath": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\Ass02Solution\\BusinessObject\\BusinessObject.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\Ass02Solution\\BusinessObject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\thong\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
