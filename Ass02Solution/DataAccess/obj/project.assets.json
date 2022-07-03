@@ -2220,23 +2220,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\thong\\.nuget\\packages\\": {},
+    "C:\\Users\\ADMIN\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\Ass02Solution\\DataAccess\\DataAccess.csproj",
+      "projectUniqueName": "D:\\Learning\\SEM5\\PRN211\\Code\\PRN_ASSG2\\Assignment_PRN\\Ass02Solution\\DataAccess\\DataAccess.csproj",
       "projectName": "DataAccess",
-      "projectPath": "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\Ass02Solution\\DataAccess\\DataAccess.csproj",
-      "packagesPath": "C:\\Users\\thong\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\Ass02Solution\\DataAccess\\obj\\",
+      "projectPath": "D:\\Learning\\SEM5\\PRN211\\Code\\PRN_ASSG2\\Assignment_PRN\\Ass02Solution\\DataAccess\\DataAccess.csproj",
+      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+      "outputPath": "D:\\Learning\\SEM5\\PRN211\\Code\\PRN_ASSG2\\Assignment_PRN\\Ass02Solution\\DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\thong\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2251,8 +2251,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\Ass02Solution\\BusinessObject\\BusinessObject.csproj": {
-              "projectPath": "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\Ass02Solution\\BusinessObject\\BusinessObject.csproj"
+            "D:\\Learning\\SEM5\\PRN211\\Code\\PRN_ASSG2\\Assignment_PRN\\Ass02Solution\\BusinessObject\\BusinessObject.csproj": {
+              "projectPath": "D:\\Learning\\SEM5\\PRN211\\Code\\PRN_ASSG2\\Assignment_PRN\\Ass02Solution\\BusinessObject\\BusinessObject.csproj"
             }
           }
         }
