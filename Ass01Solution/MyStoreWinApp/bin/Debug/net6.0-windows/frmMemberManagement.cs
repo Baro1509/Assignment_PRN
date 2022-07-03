@@ -28,7 +28,7 @@ namespace MyStoreWinApp {
             dgvMemberList.CellDoubleClick += dgvMemberList_CellContentClick;
         }
 
-        private void dgvMemberList_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+        private void dgvMemberList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             frmMemberDetails frmDetails = new frmMemberDetails()
             {

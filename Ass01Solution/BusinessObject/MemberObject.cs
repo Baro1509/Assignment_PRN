@@ -8,6 +8,6 @@ namespace Ass01BusinessObject {
         public string Password  { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
-        public string role { get; set; }
+        public string roles { get; set; }
     }
 }

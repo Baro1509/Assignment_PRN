@@ -25,24 +25,22 @@ namespace MyStoreWinApp
 
         private void frmMemberDetails_Load(object sender,EventArgs e)
         {
-            if (InsertOrUpdate) // Insert
+            if (InsertOrUpdate) 
             {
-                
-                btnSave.Visible = false;
+                              
 
             }
             else
             {
                
-                btnSave.Visible = true;
+                
                 txtMemberID.Enabled = false;
-
-                txtMemberID.Text = MemberInfo.MemberID.ToString();
                 txtMemberName.Text = MemberInfo.MemberName;
                 txtEmail.Text = MemberInfo.Email;
                 txtPassword.Text = MemberInfo.Password;
                 txtCity.Text = MemberInfo.City;
                 txtCountry.Text = MemberInfo.Country;
+               
             }
         }
 

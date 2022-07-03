@@ -31,16 +31,15 @@ namespace MyStoreWinApp {
             MemberObject login = mbrepository.Login(MemberName,Password);
             if (login != null)
             {
-                int check = login.MemberID;
+                string check = login.roles;
                 frmMemberManagement frmMemberManagement = null;
-                if (check==0)
+                if (check.Equals("Admin"))
                 {
                     frmMemberManagement = new frmMemberManagement
                     {
                         loginMember = login,
                     };
-                    frmMemberManagement.Closed += (s, args) => this.Close();
-                    this.Hide();
+                    
                     frmMemberManagement.Show();
                 }
                 else
@@ -52,8 +51,7 @@ namespace MyStoreWinApp {
                         InsertOrUpdate = false,
                         MBRepository = mbrepository
                     };
-                    frmMemberDetails.Closed += (s, args) => this.Close();
-                    this.Hide();
+                   
                     frmMemberDetails.Show();
                 }
             }

@@ -25,7 +25,7 @@ namespace Ass01DataAccess {
         public IEnumerable<MemberObject> GetMemberList()
         {
             IDataReader dataReader = null;
-            string SQLSelect = "Select MemberID, MemberName, Email, Passwords, City, Country From Users";
+            string SQLSelect = "Select MemberID, MemberName, Email, Passwords, City, Country ,roles From Users";
             var Members = new List<MemberObject>();
             try
             {
@@ -40,6 +40,7 @@ namespace Ass01DataAccess {
                         Password = dataReader.GetString(3),
                         City = dataReader.GetString(4),
                         Country = dataReader.GetString(5),
+                        roles = dataReader.GetString(6),
                     });
                 }
             }catch (Exception ex)
@@ -63,7 +64,7 @@ namespace Ass01DataAccess {
         {
             MemberObject Member = null;
             IDataReader dataReader = null;
-            string SQLSelect = "Select MemberID,MemberName,Email,Passwords,City,Country from Users where MemberID = @MemberID";
+            string SQLSelect = "Select MemberID,MemberName,Email,Passwords,City,Country,roles from Users where MemberID = @MemberID";
             try
             {
                 var param = dataProvider.CreateParameter("@MemberID", 4, MemberID, DbType.Int32);
@@ -74,7 +75,8 @@ namespace Ass01DataAccess {
                         Email = dataReader.GetString(2), 
                         Password = dataReader.GetString(3), 
                         City = dataReader.GetString(4), 
-                        Country = dataReader.GetString(5) 
+                        Country = dataReader.GetString(5), 
+                        roles = dataReader.GetString(6)
                     };
                 }
             }catch(Exception ex)
@@ -95,7 +97,7 @@ namespace Ass01DataAccess {
                 MemberObject pro = GetMemberByID(Member.MemberID);
                 if (pro == null)
                 {
-                    string SQLInsert = "Insert into Users values (@MemberID,@MemberName,@Email,@Password,@City,@Country,2)";
+                    string SQLInsert = "Insert into Users values (@MemberID,@MemberName,@Email,@Password,@City,@Country,@Role)";
                     var parameters = new List<SqlParameter>();
                     parameters.Add(dataProvider.CreateParameter("@MemberID", 4, Member.MemberID, DbType.Int32));
                     parameters.Add(dataProvider.CreateParameter("@MemberName", 50, Member.MemberName, DbType.String));
@@ -103,6 +105,7 @@ namespace Ass01DataAccess {
                     parameters.Add(dataProvider.CreateParameter("@Password", 50, Member.Password, DbType.String));
                     parameters.Add(dataProvider.CreateParameter("@City", 50, Member.City, DbType.String));
                     parameters.Add(dataProvider.CreateParameter("@Country", 20, Member.Country, DbType.String));
+                    parameters.Add(dataProvider.CreateParameter("@Role", 10, Member.roles, DbType.String));
                     dataProvider.Insert(SQLInsert, CommandType.Text, parameters.ToArray());
                 }
                 else
@@ -163,7 +166,7 @@ namespace Ass01DataAccess {
                 }
                 else
                 {
-                    throw new Exception("The car didn't exist.");
+                    throw new Exception("The Member didn't exist.");
                 }
             }catch (Exception ex)
             {
@@ -186,8 +189,7 @@ namespace Ass01DataAccess {
 
             return searchResult;
         }
-        //-----------------------------
-        //Search member by name
+       
         public IEnumerable<MemberObject> SearchMember(string name)
         {
             IEnumerable<MemberObject> searchResult = null;

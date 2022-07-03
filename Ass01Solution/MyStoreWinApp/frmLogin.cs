@@ -31,9 +31,9 @@ namespace MyStoreWinApp {
             MemberObject login = mbrepository.Login(MemberName,Password);
             if (login != null)
             {
-                int check = login.MemberID;
+                string check = login.roles;
                 frmMemberManagement frmMemberManagement = null;
-                if (check==0)
+                if (check.Equals("Admin"))
                 {
                     frmMemberManagement = new frmMemberManagement
                     {
