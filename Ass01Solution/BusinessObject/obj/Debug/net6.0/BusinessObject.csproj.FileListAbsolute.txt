@@ -10,3 +10,4 @@ C:\Users\Truong\Downloads\Assignment_PRN-devs\Ass01Solution\BusinessObject\obj\D
 C:\Users\Truong\Downloads\Assignment_PRN-devs\Ass01Solution\BusinessObject\obj\Debug\net6.0\refint\BusinessObject.dll
 C:\Users\Truong\Downloads\Assignment_PRN-devs\Ass01Solution\BusinessObject\obj\Debug\net6.0\BusinessObject.pdb
 C:\Users\Truong\Downloads\Assignment_PRN-devs\Ass01Solution\BusinessObject\obj\Debug\net6.0\ref\BusinessObject.dll
+C:\Users\Truong\Downloads\Assignment_PRN-devs\Ass01Solution\BusinessObject\bin\Debug\net6.0\MemberObject.cs

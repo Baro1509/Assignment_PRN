@@ -13,6 +13,8 @@ using DataAccess.Repository;
 
 namespace MyStoreWinApp {
     public partial class frmMemberManagement : Form {
+
+        public MemberObject loginMember { get; set; }
         IMemberRepository memberRepository = new MemberRepository();
 
         BindingSource source;
@@ -23,19 +25,19 @@ namespace MyStoreWinApp {
         private void frmMemberManagement_Load(object sender, EventArgs e)
         {
             btnDelete.Enabled = false;
-            dgvMemberList.CellDoubleClick += DgvMemberList_CellDoubleClick;
+            dgvMemberList.CellDoubleClick += dgvMemberList_CellContentClick;
         }
 
-        private void DgvMemberList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvMemberList_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
-            frmMemberDetails frmDetails = new frmMemberDetails
+            frmMemberDetails frmDetails = new frmMemberDetails()
             {
-                Text = "Update Member",
+                Text = "Update Users",
                 InsertOrUpdate = true,
                 MemberInfo = GetMemberObject(),
                 MBRepository = memberRepository
             };
-            if(frmDetails.ShowDialog() == DialogResult.OK)
+            if (frmDetails.ShowDialog() == DialogResult.OK)
             {
                 LoadMemberList();
                 source.Position = source.Count - 1;
@@ -75,13 +77,16 @@ namespace MyStoreWinApp {
             return memberObject;
         }
 
-        public void LoadMemberList()
+        public void LoadMemberList(bool search = false, IEnumerable<MemberObject> searchDataSource = null)
         {
-            var member = memberRepository.GetMembers();
+            var members = memberRepository.GetMembers();
+            var memberList = from member in members
+                             orderby member.MemberName descending
+                             select member;
             try
             {
                 source = new BindingSource();
-                source.DataSource = member;
+                source.DataSource = members;
 
                 txtMemberID.DataBindings.Clear();
                 txtMemberName.DataBindings.Clear();
@@ -99,7 +104,7 @@ namespace MyStoreWinApp {
 
                 dgvMemberList.DataSource = null;
                 dgvMemberList.DataSource = source;
-                if (member.Count() == 0)
+                if (memberList.Count() == 0)
                 {
                     ClearText();
                     btnDelete.Enabled = false;
@@ -147,6 +152,45 @@ namespace MyStoreWinApp {
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "Delete a Member");
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string searchValue = txtSearchValue.Text;
+                if (radioByID.Checked)
+                {
+                    int searchID = int.Parse(searchValue);
+                    IEnumerable<MemberObject> searchResult = memberRepository.SearchMember(searchID);
+                    if (searchResult.Any())
+                    {
+                        LoadMemberList(true, searchResult);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No result found!", "Search member", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                }
+                else if (radioByName.Checked)
+                {
+                    string searchName = searchValue;
+                    IEnumerable<MemberObject> searchResult = memberRepository.SearchMember(searchName);
+                    if (searchResult.Any())
+                    {
+                        LoadMemberList(true, searchResult);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No result found!", "Search member", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Search member", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

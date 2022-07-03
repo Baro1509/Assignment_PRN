@@ -53,3 +53,9 @@ C:\Users\Truong\Downloads\Assignment_PRN-devs\Ass01Solution\MyStoreWinApp\obj\De
 C:\Users\Truong\Downloads\Assignment_PRN-devs\Ass01Solution\MyStoreWinApp\bin\Debug\net6.0-windows\frmLogin.cs
 C:\Users\Truong\Downloads\Assignment_PRN-devs\Ass01Solution\MyStoreWinApp\bin\Debug\net6.0-windows\frmMemberDetails.cs
 C:\Users\Truong\Downloads\Assignment_PRN-devs\Ass01Solution\MyStoreWinApp\bin\Debug\net6.0-windows\frmMemberManagement.cs
+C:\Users\Truong\Downloads\Assignment_PRN-devs\Ass01Solution\MyStoreWinApp\bin\Debug\net6.0-windows\AppSetting.json
+C:\Users\Truong\Downloads\Assignment_PRN-devs\Ass01Solution\MyStoreWinApp\bin\Debug\net6.0-windows\MemberObject.cs
+C:\Users\Truong\Downloads\Assignment_PRN-devs\Ass01Solution\MyStoreWinApp\bin\Debug\net6.0-windows\BaseDAL.cs
+C:\Users\Truong\Downloads\Assignment_PRN-devs\Ass01Solution\MyStoreWinApp\bin\Debug\net6.0-windows\MemberDAO.cs
+C:\Users\Truong\Downloads\Assignment_PRN-devs\Ass01Solution\MyStoreWinApp\bin\Debug\net6.0-windows\Repository\IMemberRepository.cs
+C:\Users\Truong\Downloads\Assignment_PRN-devs\Ass01Solution\MyStoreWinApp\bin\Debug\net6.0-windows\StockProvider.cs

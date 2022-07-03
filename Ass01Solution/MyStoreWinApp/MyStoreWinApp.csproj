@@ -31,4 +31,10 @@
     </Compile>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="AppSetting.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

@@ -40,13 +40,20 @@
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.grSearch = new System.Windows.Forms.GroupBox();
+            this.radioByName = new System.Windows.Forms.RadioButton();
+            this.radioByID = new System.Windows.Forms.RadioButton();
+            this.txtSearchValue = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.lbSearch = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMemberList)).BeginInit();
+            this.grSearch.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbMemberID
             // 
             this.lbMemberID.AutoSize = true;
-            this.lbMemberID.Location = new System.Drawing.Point(65, 51);
+            this.lbMemberID.Location = new System.Drawing.Point(27, 18);
             this.lbMemberID.Name = "lbMemberID";
             this.lbMemberID.Size = new System.Drawing.Size(84, 20);
             this.lbMemberID.TabIndex = 0;
@@ -55,7 +62,7 @@
             // lbMemberName
             // 
             this.lbMemberName.AutoSize = true;
-            this.lbMemberName.Location = new System.Drawing.Point(65, 113);
+            this.lbMemberName.Location = new System.Drawing.Point(26, 58);
             this.lbMemberName.Name = "lbMemberName";
             this.lbMemberName.Size = new System.Drawing.Size(109, 20);
             this.lbMemberName.TabIndex = 1;
@@ -64,7 +71,7 @@
             // lbEmail
             // 
             this.lbEmail.AutoSize = true;
-            this.lbEmail.Location = new System.Drawing.Point(65, 177);
+            this.lbEmail.Location = new System.Drawing.Point(27, 120);
             this.lbEmail.Name = "lbEmail";
             this.lbEmail.Size = new System.Drawing.Size(46, 20);
             this.lbEmail.TabIndex = 2;
@@ -73,7 +80,7 @@
             // lbPassword
             // 
             this.lbPassword.AutoSize = true;
-            this.lbPassword.Location = new System.Drawing.Point(65, 234);
+            this.lbPassword.Location = new System.Drawing.Point(26, 172);
             this.lbPassword.Name = "lbPassword";
             this.lbPassword.Size = new System.Drawing.Size(70, 20);
             this.lbPassword.TabIndex = 3;
@@ -82,7 +89,7 @@
             // lbCity
             // 
             this.lbCity.AutoSize = true;
-            this.lbCity.Location = new System.Drawing.Point(462, 51);
+            this.lbCity.Location = new System.Drawing.Point(429, 18);
             this.lbCity.Name = "lbCity";
             this.lbCity.Size = new System.Drawing.Size(34, 20);
             this.lbCity.TabIndex = 4;
@@ -91,7 +98,7 @@
             // lbCountry
             // 
             this.lbCountry.AutoSize = true;
-            this.lbCountry.Location = new System.Drawing.Point(462, 113);
+            this.lbCountry.Location = new System.Drawing.Point(429, 70);
             this.lbCountry.Name = "lbCountry";
             this.lbCountry.Size = new System.Drawing.Size(60, 20);
             this.lbCountry.TabIndex = 5;
@@ -99,42 +106,42 @@
             // 
             // txtMemberID
             // 
-            this.txtMemberID.Location = new System.Drawing.Point(230, 51);
+            this.txtMemberID.Location = new System.Drawing.Point(164, 18);
             this.txtMemberID.Name = "txtMemberID";
             this.txtMemberID.Size = new System.Drawing.Size(211, 27);
             this.txtMemberID.TabIndex = 6;
             // 
             // txtMemberName
             // 
-            this.txtMemberName.Location = new System.Drawing.Point(230, 106);
+            this.txtMemberName.Location = new System.Drawing.Point(164, 67);
             this.txtMemberName.Name = "txtMemberName";
             this.txtMemberName.Size = new System.Drawing.Size(211, 27);
             this.txtMemberName.TabIndex = 7;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(230, 177);
+            this.txtEmail.Location = new System.Drawing.Point(164, 113);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(211, 27);
             this.txtEmail.TabIndex = 8;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(230, 234);
+            this.txtPassword.Location = new System.Drawing.Point(164, 165);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(211, 27);
             this.txtPassword.TabIndex = 9;
             // 
             // txtCity
             // 
-            this.txtCity.Location = new System.Drawing.Point(561, 51);
+            this.txtCity.Location = new System.Drawing.Point(495, 18);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(212, 27);
             this.txtCity.TabIndex = 10;
             // 
             // txtCountry
             // 
-            this.txtCountry.Location = new System.Drawing.Point(561, 113);
+            this.txtCountry.Location = new System.Drawing.Point(495, 70);
             this.txtCountry.Name = "txtCountry";
             this.txtCountry.Size = new System.Drawing.Size(212, 27);
             this.txtCountry.TabIndex = 11;
@@ -142,7 +149,7 @@
             // dgvMemberList
             // 
             this.dgvMemberList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMemberList.Location = new System.Drawing.Point(65, 348);
+            this.dgvMemberList.Location = new System.Drawing.Point(26, 384);
             this.dgvMemberList.Name = "dgvMemberList";
             this.dgvMemberList.ReadOnly = true;
             this.dgvMemberList.RowHeadersWidth = 51;
@@ -150,10 +157,11 @@
             this.dgvMemberList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMemberList.Size = new System.Drawing.Size(708, 188);
             this.dgvMemberList.TabIndex = 12;
+            this.dgvMemberList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMemberList_CellContentClick);
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(369, 542);
+            this.btnClose.Location = new System.Drawing.Point(369, 597);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(94, 29);
             this.btnClose.TabIndex = 13;
@@ -163,7 +171,7 @@
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(130, 313);
+            this.btnLoad.Location = new System.Drawing.Point(65, 222);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(94, 29);
             this.btnLoad.TabIndex = 14;
@@ -173,7 +181,7 @@
             // 
             // btnNew
             // 
-            this.btnNew.Location = new System.Drawing.Point(369, 313);
+            this.btnNew.Location = new System.Drawing.Point(369, 222);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(94, 29);
             this.btnNew.TabIndex = 15;
@@ -183,7 +191,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(600, 313);
+            this.btnDelete.Location = new System.Drawing.Point(613, 222);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(94, 29);
             this.btnDelete.TabIndex = 16;
@@ -191,11 +199,80 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // grSearch
+            // 
+            this.grSearch.Controls.Add(this.radioByName);
+            this.grSearch.Controls.Add(this.radioByID);
+            this.grSearch.Controls.Add(this.txtSearchValue);
+            this.grSearch.Controls.Add(this.btnSearch);
+            this.grSearch.Controls.Add(this.lbSearch);
+            this.grSearch.Location = new System.Drawing.Point(26, 258);
+            this.grSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.grSearch.Name = "grSearch";
+            this.grSearch.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.grSearch.Size = new System.Drawing.Size(404, 119);
+            this.grSearch.TabIndex = 23;
+            this.grSearch.TabStop = false;
+            // 
+            // radioByName
+            // 
+            this.radioByName.AutoSize = true;
+            this.radioByName.Checked = true;
+            this.radioByName.Location = new System.Drawing.Point(301, 76);
+            this.radioByName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.radioByName.Name = "radioByName";
+            this.radioByName.Size = new System.Drawing.Size(90, 24);
+            this.radioByName.TabIndex = 23;
+            this.radioByName.TabStop = true;
+            this.radioByName.Text = "By Name";
+            this.radioByName.UseVisualStyleBackColor = true;
+            // 
+            // radioByID
+            // 
+            this.radioByID.AutoSize = true;
+            this.radioByID.Location = new System.Drawing.Point(301, 29);
+            this.radioByID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.radioByID.Name = "radioByID";
+            this.radioByID.Size = new System.Drawing.Size(65, 24);
+            this.radioByID.TabIndex = 22;
+            this.radioByID.TabStop = true;
+            this.radioByID.Text = "By ID";
+            this.radioByID.UseVisualStyleBackColor = true;
+            // 
+            // txtSearchValue
+            // 
+            this.txtSearchValue.Location = new System.Drawing.Point(82, 24);
+            this.txtSearchValue.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtSearchValue.Name = "txtSearchValue";
+            this.txtSearchValue.Size = new System.Drawing.Size(134, 27);
+            this.txtSearchValue.TabIndex = 17;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(82, 69);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(86, 31);
+            this.btnSearch.TabIndex = 21;
+            this.btnSearch.Text = "&Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // lbSearch
+            // 
+            this.lbSearch.AutoSize = true;
+            this.lbSearch.Location = new System.Drawing.Point(27, 29);
+            this.lbSearch.Name = "lbSearch";
+            this.lbSearch.Size = new System.Drawing.Size(53, 20);
+            this.lbSearch.TabIndex = 16;
+            this.lbSearch.Text = "Search";
+            // 
             // frmMemberManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 583);
+            this.ClientSize = new System.Drawing.Size(800, 637);
+            this.Controls.Add(this.grSearch);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.btnLoad);
@@ -214,8 +291,11 @@
             this.Controls.Add(this.lbMemberName);
             this.Controls.Add(this.lbMemberID);
             this.Name = "frmMemberManagement";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Member Management";
             ((System.ComponentModel.ISupportInitialize)(this.dgvMemberList)).EndInit();
+            this.grSearch.ResumeLayout(false);
+            this.grSearch.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,5 +320,11 @@
         private Button btnLoad;
         private Button btnNew;
         private Button btnDelete;
+        private GroupBox grSearch;
+        private RadioButton radioByName;
+        private RadioButton radioByID;
+        private TextBox txtSearchValue;
+        private Button btnSearch;
+        private Label lbSearch;
     }
 }

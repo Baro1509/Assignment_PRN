@@ -19,21 +19,52 @@ namespace MyStoreWinApp {
         public frmLogin() {
             InitializeComponent();
         }
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            frmMemberManagement frmMemberManagement = new frmMemberManagement()
-            {            
-                
-            };
-            if (frmMemberManagement.ShowDialog() == DialogResult.OK)
+            string MemberName = txtMemberName.Text;
+            string Password = txtPassword.Text;
+            MemberObject login = mbrepository.Login(MemberName,Password);
+            if (login != null)
             {
-               
+                int check = login.MemberID;
+                frmMemberManagement frmMemberManagement = null;
+                if (check==0)
+                {
+                    frmMemberManagement = new frmMemberManagement
+                    {
+                        loginMember = login,
+                    };
+                    
+                    frmMemberManagement.Show();
+                }
+                else
+                {
+                    frmMemberDetails frmMemberDetails = new frmMemberDetails
+                    {
+                        Text = "Member Details",
+                        MemberInfo = login,
+                        InsertOrUpdate = false,
+                        MBRepository = mbrepository
+                    };
+                   
+                    frmMemberDetails.Show();
+                }
+            }
+            else
+            {
+                if (MessageBox.Show("Login failed, Please try again", "Login", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) == DialogResult.Cancel)
+                {
+                    Close();
+                }
             }
         }
 
-
-
+        private void btnClose_Click(object sender, EventArgs e) => Close();       
     }
 
 }

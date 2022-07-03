@@ -25,15 +25,24 @@ namespace MyStoreWinApp
 
         private void frmMemberDetails_Load(object sender,EventArgs e)
         {
-            if (InsertOrUpdate == true)
+            if (InsertOrUpdate) // Insert
             {
+                
+                btnSave.Visible = false;
+
+            }
+            else
+            {
+               
+                btnSave.Visible = true;
+                txtMemberID.Enabled = false;
+
                 txtMemberID.Text = MemberInfo.MemberID.ToString();
                 txtMemberName.Text = MemberInfo.MemberName;
                 txtEmail.Text = MemberInfo.Email;
                 txtPassword.Text = MemberInfo.Password;
                 txtCity.Text = MemberInfo.City;
                 txtCountry.Text = MemberInfo.Country;
-
             }
         }
 
@@ -41,7 +50,7 @@ namespace MyStoreWinApp
         {
             try
             {
-                var member = new MemberObject
+                MemberObject member = new MemberObject
                 {
                     MemberID = int.Parse(txtMemberID.Text),
                     MemberName = txtMemberName.Text,
