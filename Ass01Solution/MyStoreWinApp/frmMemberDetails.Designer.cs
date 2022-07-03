@@ -42,6 +42,8 @@
             this.txtCountry = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.lbRole = new System.Windows.Forms.Label();
+            this.txtRole = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lbMemberID
@@ -142,7 +144,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(286, 356);
+            this.btnSave.Location = new System.Drawing.Point(286, 391);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(73, 37);
             this.btnSave.TabIndex = 12;
@@ -152,7 +154,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(407, 356);
+            this.btnCancel.Location = new System.Drawing.Point(407, 391);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(73, 37);
             this.btnCancel.TabIndex = 13;
@@ -160,11 +162,29 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // lbRole
+            // 
+            this.lbRole.AutoSize = true;
+            this.lbRole.Location = new System.Drawing.Point(83, 328);
+            this.lbRole.Name = "lbRole";
+            this.lbRole.Size = new System.Drawing.Size(39, 20);
+            this.lbRole.TabIndex = 14;
+            this.lbRole.Text = "Role";
+            // 
+            // txtRole
+            // 
+            this.txtRole.Location = new System.Drawing.Point(286, 328);
+            this.txtRole.Name = "txtRole";
+            this.txtRole.Size = new System.Drawing.Size(194, 27);
+            this.txtRole.TabIndex = 15;
+            // 
             // frmMemberDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(545, 450);
+            this.Controls.Add(this.txtRole);
+            this.Controls.Add(this.lbRole);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtCountry);
@@ -204,5 +224,7 @@
         private TextBox txtCountry;
         private Button btnSave;
         private Button btnCancel;
+        private Label lbRole;
+        private TextBox txtRole;
     }
 }

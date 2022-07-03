@@ -52,6 +52,7 @@ namespace MyStoreWinApp {
             txtPassword.Text = string.Empty;
             txtCity.Text = string.Empty;
             txtCountry.Text = string.Empty;
+            
 
         }
 

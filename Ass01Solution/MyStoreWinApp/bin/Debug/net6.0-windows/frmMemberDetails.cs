@@ -25,23 +25,17 @@ namespace MyStoreWinApp
 
         private void frmMemberDetails_Load(object sender,EventArgs e)
         {
-            if (InsertOrUpdate) 
+            if (InsertOrUpdate==true) 
             {
-                              
-
-            }
-            else
-            {
-               
-                
                 txtMemberID.Enabled = false;
+                txtMemberID.Text = MemberInfo.MemberID.ToString();
                 txtMemberName.Text = MemberInfo.MemberName;
                 txtEmail.Text = MemberInfo.Email;
                 txtPassword.Text = MemberInfo.Password;
                 txtCity.Text = MemberInfo.City;
                 txtCountry.Text = MemberInfo.Country;
-               
-            }
+                txtRole.Text = MemberInfo.roles;
+            }         
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -55,7 +49,8 @@ namespace MyStoreWinApp
                     Email = txtEmail.Text,
                     Password = txtPassword.Text,
                     City = txtCity.Text,
-                    Country = txtCountry.Text
+                    Country = txtCountry.Text,
+                    roles = txtRole.Text
                 };
                 if (InsertOrUpdate == false)
                 {
