@@ -62,7 +62,19 @@ namespace SalesWinApp
             {
                 MessageBox.Show(ex.Message, InsertOrUpdate == false ? "Add a new product" : "Update product");
             }
-            Close();
+            finally
+            {
+                if (InsertOrUpdate == false) //Insert Mode
+                {
+                    MessageBox.Show("Insert successfully");
+                }
+                else
+                {
+                    MessageBox.Show("Update successfully");
+                }
+                Close();
+
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e) => Close();

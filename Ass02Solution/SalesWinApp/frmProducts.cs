@@ -31,6 +31,7 @@ namespace SalesWinApp
             {
                 source = new BindingSource();
                 source.DataSource = products;
+                System.Diagnostics.Debug.WriteLine(products.Count());
 
                 txtProductId.DataBindings.Clear();
                 txtCategoryId.DataBindings.Clear();
@@ -39,12 +40,12 @@ namespace SalesWinApp
                 txtUnitPrice.DataBindings.Clear();
                 txtWeight.DataBindings.Clear();
                 //Binding to TextBoxes
-                txtProductId.DataBindings.Add("Text", products, "ProductID");
-                txtCategoryId.DataBindings.Add("Text", products, "CategoryID");
-                txtProductName.DataBindings.Add("Text", products, "ProductName");
-                txtUnitInStock.DataBindings.Add("Text", products, "UnitsInStock");
-                txtUnitPrice.DataBindings.Add("Text", products, "UnitPrice");
-                txtWeight.DataBindings.Add("Text", products, "Weights");
+                txtProductId.DataBindings.Add("Text", source, "ProductId");
+                txtCategoryId.DataBindings.Add("Text", source, "CategoryId");
+                txtProductName.DataBindings.Add("Text", source, "ProductName");
+                txtUnitInStock.DataBindings.Add("Text", source, "UnitsInStock");
+                txtUnitPrice.DataBindings.Add("Text", source, "UnitPrice");
+                txtWeight.DataBindings.Add("Text", source, "Weights");
 
                 dgvProducts.DataSource = null;
                 dgvProducts.DataSource = source;
@@ -53,7 +54,7 @@ namespace SalesWinApp
                     btnDelete.Enabled = true;
                     btnCreate.Enabled = true;
                 }
-                if (products.Count() == 0)
+                if (products == null || products.Count() == 0)
                 {
                     ClearText();
                     btnDelete.Enabled = false;
@@ -136,43 +137,52 @@ namespace SalesWinApp
         {
             if (RoleID == 1) // Admin role
             {
-                frmProductDetails frmProductDetails = new frmProductDetails
+                try
                 {
-                    Text = "Update product",
-                    InsertOrUpdate = true,
-                    Product = GetProduct(),
-                    ProductRepository = ProductRepository,
-                    RoleID = RoleID
-                };
-                if (frmProductDetails.ShowDialog() == DialogResult.OK)
+                    frmProductDetails frmProductDetails = new frmProductDetails
+                    {
+                        Text = "Update product",
+                        InsertOrUpdate = true,
+                        Product = GetProduct(),
+                        ProductRepository = ProductRepository,
+                        RoleID = RoleID
+                    };
+                    if (frmProductDetails.ShowDialog() == DialogResult.OK)
+                    {
+                        ProductRepository = new ProductRepository();
+                        var products = ProductRepository.GetAllProducts();
+                        LoadProducts(products);
+                        //Set focus product updated
+                        source.Position = source.Count - 1;
+                    }
+                }
+                catch (Exception ex)
                 {
-                    ProductRepository = new ProductRepository();
-                    var products = ProductRepository.GetAllProducts();
-                    LoadProducts(products);
-                    //Set focus product updated
-                    source.Position = source.Count - 1;
+                    System.Diagnostics.Debug.WriteLine("Error in frmProducts dgvProducts_CellDoubleClick: " + ex.Message);
+                    MessageBox.Show(ex.Message, "Update product");
                 }
             }
 
         }
 
-        private Product? GetProduct()
+        private Product GetProduct()
         {
-            Product? product = null;
+            Product? product = new Product();
             try
             {
                 product = new Product
                 {
                     ProductId = int.Parse(txtProductId.Text),
-                    ProductName = txtProductName.Text,
-                    UnitPrice = decimal.Parse(txtUnitPrice.Text),
-                    UnitsInStock = int.Parse(txtUnitInStock.Text),
                     CategoryId = int.Parse(txtCategoryId.Text),
-                    Weights = txtWeight.Text
+                    ProductName = txtProductName.Text,
+                    Weights = txtWeight.Text,
+                    UnitPrice = decimal.Parse(txtUnitPrice.Text),
+                    UnitsInStock = int.Parse(txtUnitInStock.Text)
                 };
             }
             catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine("Error in frmProducts GetProduct: " + ex.Message);
                 MessageBox.Show(ex.Message, "Get product");
             }
             return product;
@@ -185,14 +195,15 @@ namespace SalesWinApp
                 if (RoleID == 1) // Admin Role
                 {
                     var product = GetProduct();
-                    ProductRepository.Delete(product);
                     ProductRepository = new ProductRepository();
+                    ProductRepository.Delete(product);
                     var products = ProductRepository.GetAllProducts();
                     LoadProducts(products);
                 }
             }
             catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine("Error in frmProducts btnDelete_Click: " + ex.Message);
                 MessageBox.Show(ex.Message, "Delete a product");
             }
         }
