@@ -162,7 +162,18 @@ namespace SalesWinApp
                     MessageBox.Show(ex.Message, "Update product");
                 }
             }
-
+            if (RoleID == 2) //Member role
+            {
+                frmProductDetails frmProductDetails = new frmProductDetails
+                {
+                    Text = "View product",
+                    InsertOrUpdate = true,
+                    Product = GetProduct(),
+                    ProductRepository = ProductRepository,
+                    RoleID = RoleID
+                };
+                frmProductDetails.ShowDialog();
+            }
         }
 
         private Product GetProduct()
