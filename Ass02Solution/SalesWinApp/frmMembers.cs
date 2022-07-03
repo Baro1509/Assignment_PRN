@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessObject.EntityModels;
+using DataAccess;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,18 +14,35 @@ namespace SalesWinApp
 {
     public partial class frmMembers : Form
     {
+        BindingSource source;
         public frmMembers()
         {
             InitializeComponent();
         }
         private void frmMember_Load(object sender, EventArgs e)
         {
-
+               LoadMembers();
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                var member = new Member
+                {
+                    MemberId = int.Parse(txtMemberId.Text),
+                    Email = txtEmail.Text,
+                    Passwords = txtPassword.Text,
+                    City = txtCity.Text,
+                    Country = txtCountry.Text,
+                    CompanyName = txtCompanyName.Text,
+                };
+                MemberDAO.Instance.Insert(member);
+                LoadMembers();
+            }catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Create Category");
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -38,9 +57,68 @@ namespace SalesWinApp
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
+            LoadMembers();
+        }
+
+        private void LoadMembers()
+        {
+            source = new BindingSource();
+            var members = MemberDAO.Instance.GetMembers();
+            txtMemberId.DataBindings.Clear();
+            txtPassword.DataBindings.Clear();
+            txtEmail.DataBindings.Clear();
+            txtCity.DataBindings.Clear();
+            txtCompanyName.DataBindings.Clear();
+            txtCountry.DataBindings.Clear();
+            //Binding to textBox
+            txtMemberId.DataBindings.Add("Text", members, "MemberId");
+            txtEmail.DataBindings.Add("Text", members, "Email");
+            txtCompanyName.DataBindings.Add("Text", members, "CompanyName");
+            txtCity.DataBindings.Add("Text", members, "City");
+            txtCountry.DataBindings.Add("Text", members, "Country");
+            txtPassword.DataBindings.Add("Text", members, "Passwords");
+
+            dgvMembers.DataSource = null;
+            dgvMembers.DataSource = members;
+            if(members.Count() == 0)
+            {
+                ClearText();
+                btnDelete.Enabled = false;
+            }
+            else
+            {
+                btnDelete.Enabled = true;
+            }
+        }
+
+        private void ClearText()
+        {
+            txtMemberId.Text = string.Empty;
+            txtPassword.Text = string.Empty;
+            txtCity.Text = string.Empty;
+            txtCountry.Text = string.Empty ;
+            txtEmail.Text = string.Empty ;
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
 
         }
 
-        
+        private void dgvMembers_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                
+            }catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        private void dgvMembers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

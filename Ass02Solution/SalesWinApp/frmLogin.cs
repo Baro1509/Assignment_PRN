@@ -63,7 +63,7 @@ public partial class frmLogin : Form
 
     private void btnCancel_Click(object sender, EventArgs e)
     {
-
+        Application.Exit();
     }
 
     private void frmLogin_Load(object sender, EventArgs e)

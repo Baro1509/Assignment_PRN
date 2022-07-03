@@ -63,12 +63,12 @@ namespace DataAccess
             }
             catch (Exception ex) { throw new Exception(ex.Message); }
         }
-        public void Delete(Member member)
+        public void Delete(int id)
         {
             try
             {
                 Ass02Context ctx = new Ass02Context();
-                var mem = ctx.Members.FirstOrDefault(x => x.MemberId == member.MemberId);
+                var mem = ctx.Members.FirstOrDefault(x => x.MemberId == id);
                 ctx.Members.Remove(mem);
                 ctx.SaveChanges();
             }
