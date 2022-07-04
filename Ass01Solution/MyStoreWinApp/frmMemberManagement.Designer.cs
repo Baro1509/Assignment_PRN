@@ -42,10 +42,12 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.grSearch = new System.Windows.Forms.GroupBox();
             this.radioByName = new System.Windows.Forms.RadioButton();
-            this.radioByID = new System.Windows.Forms.RadioButton();
+            this.radioByCity = new System.Windows.Forms.RadioButton();
             this.txtSearchValue = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lbSearch = new System.Windows.Forms.Label();
+            this.radioCountry = new System.Windows.Forms.RadioButton();
+            this.radioEmail = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMemberList)).BeginInit();
             this.grSearch.SuspendLayout();
             this.SuspendLayout();
@@ -201,8 +203,10 @@
             // 
             // grSearch
             // 
+            this.grSearch.Controls.Add(this.radioEmail);
+            this.grSearch.Controls.Add(this.radioCountry);
             this.grSearch.Controls.Add(this.radioByName);
-            this.grSearch.Controls.Add(this.radioByID);
+            this.grSearch.Controls.Add(this.radioByCity);
             this.grSearch.Controls.Add(this.txtSearchValue);
             this.grSearch.Controls.Add(this.btnSearch);
             this.grSearch.Controls.Add(this.lbSearch);
@@ -210,7 +214,7 @@
             this.grSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grSearch.Name = "grSearch";
             this.grSearch.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.grSearch.Size = new System.Drawing.Size(404, 119);
+            this.grSearch.Size = new System.Drawing.Size(569, 119);
             this.grSearch.TabIndex = 23;
             this.grSearch.TabStop = false;
             // 
@@ -227,17 +231,17 @@
             this.radioByName.Text = "By Name";
             this.radioByName.UseVisualStyleBackColor = true;
             // 
-            // radioByID
+            // radioByCity
             // 
-            this.radioByID.AutoSize = true;
-            this.radioByID.Location = new System.Drawing.Point(301, 29);
-            this.radioByID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.radioByID.Name = "radioByID";
-            this.radioByID.Size = new System.Drawing.Size(65, 24);
-            this.radioByID.TabIndex = 22;
-            this.radioByID.TabStop = true;
-            this.radioByID.Text = "By ID";
-            this.radioByID.UseVisualStyleBackColor = true;
+            this.radioByCity.AutoSize = true;
+            this.radioByCity.Location = new System.Drawing.Point(301, 29);
+            this.radioByCity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.radioByCity.Name = "radioByCity";
+            this.radioByCity.Size = new System.Drawing.Size(75, 24);
+            this.radioByCity.TabIndex = 22;
+            this.radioByCity.TabStop = true;
+            this.radioByCity.Text = "By City";
+            this.radioByCity.UseVisualStyleBackColor = true;
             // 
             // txtSearchValue
             // 
@@ -266,6 +270,28 @@
             this.lbSearch.Size = new System.Drawing.Size(53, 20);
             this.lbSearch.TabIndex = 16;
             this.lbSearch.Text = "Search";
+            // 
+            // radioCountry
+            // 
+            this.radioCountry.AutoSize = true;
+            this.radioCountry.Location = new System.Drawing.Point(436, 25);
+            this.radioCountry.Name = "radioCountry";
+            this.radioCountry.Size = new System.Drawing.Size(101, 24);
+            this.radioCountry.TabIndex = 24;
+            this.radioCountry.TabStop = true;
+            this.radioCountry.Text = "By Country";
+            this.radioCountry.UseVisualStyleBackColor = true;
+            // 
+            // radioEmail
+            // 
+            this.radioEmail.AutoSize = true;
+            this.radioEmail.Location = new System.Drawing.Point(436, 76);
+            this.radioEmail.Name = "radioEmail";
+            this.radioEmail.Size = new System.Drawing.Size(87, 24);
+            this.radioEmail.TabIndex = 25;
+            this.radioEmail.TabStop = true;
+            this.radioEmail.Text = "By Email";
+            this.radioEmail.UseVisualStyleBackColor = true;
             // 
             // frmMemberManagement
             // 
@@ -322,9 +348,11 @@
         private Button btnDelete;
         private GroupBox grSearch;
         private RadioButton radioByName;
-        private RadioButton radioByID;
+        private RadioButton radioByCity;
         private TextBox txtSearchValue;
         private Button btnSearch;
         private Label lbSearch;
+        private RadioButton radioCountry;
+        private RadioButton radioEmail;
     }
 }

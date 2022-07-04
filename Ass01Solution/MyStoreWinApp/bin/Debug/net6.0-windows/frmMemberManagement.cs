@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using Ass01BusinessObject;
 using Ass01DataAccess;
 using DataAccess.Repository;
+using System.Collections.Generic;
+
 
 namespace MyStoreWinApp {
     public partial class frmMemberManagement : Form {
@@ -78,7 +80,7 @@ namespace MyStoreWinApp {
             return memberObject;
         }
 
-        public void LoadMemberList(bool search = false, IEnumerable<MemberObject> searchDataSource = null)
+        public void LoadMemberList()
         {
             var members = memberRepository.GetMembers();
             var memberList = from member in members
@@ -115,6 +117,44 @@ namespace MyStoreWinApp {
                     btnDelete.Enabled = true;
                 }
             }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Load Member List");
+            }
+        }
+        public void LoadMemberList(IEnumerable<MemberObject> members)
+        {          
+            try
+            {
+                source = new BindingSource();
+                source.DataSource = members;
+
+                txtMemberID.DataBindings.Clear();
+                txtMemberName.DataBindings.Clear();
+                txtEmail.DataBindings.Clear();
+                txtPassword.DataBindings.Clear();
+                txtCity.DataBindings.Clear();
+                txtCountry.DataBindings.Clear();
+
+                txtMemberID.DataBindings.Add("Text", source, "MemberID");
+                txtMemberName.DataBindings.Add("Text", source, "MemberName");
+                txtEmail.DataBindings.Add("Text", source, "Email");
+                txtPassword.DataBindings.Add("Text", source, "Password");
+                txtCity.DataBindings.Add("Text", source, "City");
+                txtCountry.DataBindings.Add("Text", source, "Country");
+
+                dgvMemberList.DataSource = null;
+                dgvMemberList.DataSource = source;
+                if (members.Count() == 0)
+                {
+                    ClearText();
+                    btnDelete.Enabled = false;
+                }
+                else
+                {
+                    btnDelete.Enabled = true;
+                }
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Load Member List");
             }
@@ -161,13 +201,14 @@ namespace MyStoreWinApp {
             try
             {
                 string searchValue = txtSearchValue.Text;
-                if (radioByID.Checked)
+                
+                if (radioByCity.Checked)
                 {
-                    int searchID = int.Parse(searchValue);
-                    IEnumerable<MemberObject> searchResult = memberRepository.SearchMember(searchID);
+                    string searchName = searchValue;
+                    IEnumerable<MemberObject> searchResult = memberRepository.SearchMemberByCity(searchName);
                     if (searchResult.Any())
                     {
-                        LoadMemberList(true, searchResult);
+                        LoadMemberList(searchResult);
                     }
                     else
                     {
@@ -181,11 +222,35 @@ namespace MyStoreWinApp {
                     IEnumerable<MemberObject> searchResult = memberRepository.SearchMember(searchName);
                     if (searchResult.Any())
                     {
-                        LoadMemberList(true, searchResult);
+                        LoadMemberList(searchResult);
                     }
                     else
                     {
-                        MessageBox.Show("No result found!", "Search member", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("No result", "Search member", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }else if (radioCountry.Checked)
+                {
+                    string searchName = searchValue;
+                    IEnumerable<MemberObject> searchResult = memberRepository.SearchMemberByCountry(searchName);
+                    if (searchResult.Any())
+                    {
+                        LoadMemberList(searchResult);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No result", "Search member", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }else if (radioEmail.Checked)
+                {
+                    string searchName = searchValue;
+                    IEnumerable<MemberObject> searchResult = memberRepository.SearchMemberByEmail(searchName);
+                    if (searchResult.Any())
+                    {
+                        LoadMemberList(searchResult);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No result", "Search member", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }

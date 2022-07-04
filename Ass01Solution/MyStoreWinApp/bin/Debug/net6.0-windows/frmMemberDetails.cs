@@ -35,6 +35,7 @@ namespace MyStoreWinApp
                 txtCity.Text = MemberInfo.City;
                 txtCountry.Text = MemberInfo.Country;
                 txtRole.Text = MemberInfo.roles;
+                txtRole.Enabled = false;
             }         
         }
 

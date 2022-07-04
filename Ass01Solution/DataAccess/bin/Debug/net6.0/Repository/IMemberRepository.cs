@@ -10,11 +10,13 @@ namespace DataAccess.Repository {
     {
         IEnumerable<MemberObject> GetMembers();
         MemberObject GetMemberByID(int MemberID);
-        public MemberObject Login(string MemberName, String Password);
+        public MemberObject Login(string Email, String Password);
         public void InsertMember(MemberObject member);
         public void UpdateMember(MemberObject member);
         public void DeleteMember(int MemberID);
-        public IEnumerable<MemberObject> SearchMember(int id);
+        public IEnumerable<MemberObject> SearchMemberByCity(string city);
+        public IEnumerable<MemberObject> SearchMemberByCountry(string country);
+        public IEnumerable<MemberObject> SearchMemberByEmail(string email);
         public IEnumerable<MemberObject> SearchMember(string name);
 
     }

@@ -26,9 +26,9 @@ namespace MyStoreWinApp {
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string MemberName = txtMemberName.Text;
+            string Email = txtMemberName.Text;
             string Password = txtPassword.Text;
-            MemberObject login = mbrepository.Login(MemberName,Password);
+            MemberObject login = mbrepository.Login(Email,Password);
             if (login != null)
             {
                 string check = login.roles;

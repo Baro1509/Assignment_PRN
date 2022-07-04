@@ -54,10 +54,10 @@ namespace Ass01DataAccess {
             }
             return Members;
         }
-        public MemberObject Login(string MemberName, string Password)
+        public MemberObject Login(string Email, string Password)
         {
             IEnumerable<MemberObject> members = GetMemberList();
-            MemberObject member = members.SingleOrDefault(mb => mb.MemberName.Equals(MemberName) && mb.Password.Equals(Password));
+            MemberObject member = members.SingleOrDefault(mb => mb.Email.Equals(Email) && mb.Password.Equals(Password));
             return member;
         } 
         public MemberObject GetMemberByID(int MemberID)
@@ -178,24 +178,48 @@ namespace Ass01DataAccess {
             }
         }
 
-        public IEnumerable<MemberObject> SearchMember(int id)
+        public IEnumerable<MemberObject> SearchMemberByCity(string city)
         {
             IEnumerable<MemberObject> searchResult = null;
             IEnumerable<MemberObject> members = GetMemberList();
             var memberSearch = from member in members
-                               where member.MemberID == id
+                               where member.City.ToLower().Contains(city.ToLower())
                                select member;
             searchResult = memberSearch;
 
             return searchResult;
         }
-       
+        
+        public IEnumerable<MemberObject> SearchMemberByCountry(string country)
+        {
+            IEnumerable<MemberObject> searchResult = null;
+            IEnumerable<MemberObject> members = GetMemberList();
+            var memberSearch = from member in members
+                               where member.Country.ToLower().Contains(country.ToLower())
+                               select member;
+            searchResult = memberSearch;
+
+            return searchResult;
+        }
+
         public IEnumerable<MemberObject> SearchMember(string name)
         {
             IEnumerable<MemberObject> searchResult = null;
             IEnumerable<MemberObject> members = GetMemberList();
             var memberSearch = from member in members
                                where member.MemberName.ToLower().Contains(name.ToLower())
+                               select member;
+            searchResult = memberSearch;
+
+            return searchResult;
+        }
+
+        public IEnumerable<MemberObject> SearchMemberByEmail(string email)
+        {
+            IEnumerable<MemberObject> searchResult = null;
+            IEnumerable<MemberObject> members = GetMemberList();
+            var memberSearch = from member in members
+                               where member.Email.ToLower().Contains(email.ToLower())
                                select member;
             searchResult = memberSearch;
 
