@@ -41,7 +41,7 @@ public partial class frmLogin : Form
                 string role = MemberDAO.Instance.checkLogin(member);
                 if (!String.IsNullOrEmpty(role))
                 {
-                    var frm = new frmMemberDetails();
+                    var frm = new frmMembers(role);
                     frm.Location = this.Location;
                     frm.StartPosition = FormStartPosition.Manual;
                     frm.FormClosing += delegate { this.Show(); };

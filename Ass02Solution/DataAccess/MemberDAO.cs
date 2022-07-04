@@ -39,18 +39,32 @@ namespace DataAccess
             }
             return members;
         }
-        public void Insert(Member member)
+        public string Insert(Member member)
         {
+            string message="";
             try
             {
                 Ass02Context ctx = new Ass02Context();
-                ctx.Members.Add(member);
-                ctx.SaveChanges();
+                var mem = ctx.Members.Where(e =>e.Email.Equals(member.Email) || e.MemberId == member.MemberId ).FirstOrDefault();
+                if (mem != null)
+                {
+                    message = "Email or Id cannot duplicate!!";
+                }
+                else
+                {
+                    ctx.Members.Add(member);
+                    ctx.SaveChanges();
+                    message = "Create successfully!!";
+                }
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
+            return message;
+            
+
+            
         }
 
         public void Update(Member member)
@@ -75,13 +89,13 @@ namespace DataAccess
             catch (Exception ex) { throw new Exception(ex.Message); }
         }
 
-        public String checkLogin(Member member)
+        public string checkLogin(Member member)
         {
-            string mem;
+            string mem="";
             try
             {
                 Ass02Context ctx = new Ass02Context();
-                mem = ctx.Members.Where(m => m.Email.Equals(member.Email) && m.Passwords.Equals(member.Passwords)).Select(r=>r.Role).FirstOrDefault().ToString();
+                mem = ctx.Members.Where(m => m.Email.Equals(member.Email) && m.Passwords.Equals(member.Passwords)).Select(r=>r.RoleId).FirstOrDefault().ToString();
                 
             }
             catch (Exception ex) { throw new Exception(ex.Message); }

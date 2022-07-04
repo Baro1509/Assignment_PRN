@@ -14,14 +14,32 @@ namespace SalesWinApp
 {
     public partial class frmMembers : Form
     {
+        string role = "";
         BindingSource source;
         public frmMembers()
         {
             InitializeComponent();
         }
+        public frmMembers(string role)
+        {
+            InitializeComponent();
+            this.role = role;
+        }
+        private void authorized(string role)
+        {
+            if (role == "2")
+            {
+                btnDelete.Enabled = false;
+            }
+            else
+            {
+                btnDelete.Enabled = true;
+            }
+        }
         private void frmMember_Load(object sender, EventArgs e)
         {
                LoadMembers();
+               authorized(role);
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
@@ -36,8 +54,9 @@ namespace SalesWinApp
                     City = txtCity.Text,
                     Country = txtCountry.Text,
                     CompanyName = txtCompanyName.Text,
+                    RoleId = 2,
                 };
-                MemberDAO.Instance.Insert(member);
+                MessageBox.Show(MemberDAO.Instance.Insert(member),"ERROR");
                 LoadMembers();
             }catch (Exception ex)
             {
@@ -52,7 +71,18 @@ namespace SalesWinApp
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            int memberId;
+            try
+            {
+                memberId = int.Parse(txtMemberId.Text);
+                MemberDAO.Instance.Delete(memberId);
+                LoadMembers();
 
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
