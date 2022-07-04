@@ -75,20 +75,17 @@ namespace DataAccess
             catch (Exception ex) { throw new Exception(ex.Message); }
         }
 
-        public string checkLogin(Member member)
+        public String checkLogin(Member member)
         {
-            string role="";
+            string mem;
             try
             {
                 Ass02Context ctx = new Ass02Context();
-                var mem = ctx.Members.Where(m => m.Email.Equals(member.Email) && m.Passwords.Equals(member.Passwords)).FirstOrDefault();
-                if (mem != null)
-                {
-                    role = mem.Role.RoleName;   
-                }
+                mem = ctx.Members.Where(m => m.Email.Equals(member.Email) && m.Passwords.Equals(member.Passwords)).Select(r=>r.Role).FirstOrDefault().ToString();
+                
             }
             catch (Exception ex) { throw new Exception(ex.Message); }
-            return role;
+            return mem;
         }
     }
 }

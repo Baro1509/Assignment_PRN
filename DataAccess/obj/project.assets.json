@@ -2201,23 +2201,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ADMIN\\.nuget\\packages\\": {},
-    "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\thong\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\DataAccess\\DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\DataAccess\\DataAccess.csproj",
       "projectName": "DataAccess",
-      "projectPath": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\DataAccess\\DataAccess.csproj",
-      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\DataAccess\\obj\\",
+      "projectPath": "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\DataAccess\\DataAccess.csproj",
+      "packagesPath": "C:\\Users\\thong\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\thong\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
