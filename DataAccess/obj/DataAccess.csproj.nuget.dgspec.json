@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\DataAccess\\DataAccess.csproj": {}
+    "D:\\Learning\\SEM5\\PRN211\\Code\\PRN_ASSG2\\Assignment_PRN\\DataAccess\\DataAccess.csproj": {}
   },
   "projects": {
-    "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\DataAccess\\DataAccess.csproj": {
+    "D:\\Learning\\SEM5\\PRN211\\Code\\PRN_ASSG2\\Assignment_PRN\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "D:\\Learning\\SEM5\\PRN211\\Code\\PRN_ASSG2\\Assignment_PRN\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\DataAccess\\DataAccess.csproj",
+        "projectPath": "D:\\Learning\\SEM5\\PRN211\\Code\\PRN_ASSG2\\Assignment_PRN\\DataAccess\\DataAccess.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\DataAccess\\obj\\",
+        "outputPath": "D:\\Learning\\SEM5\\PRN211\\Code\\PRN_ASSG2\\Assignment_PRN\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
