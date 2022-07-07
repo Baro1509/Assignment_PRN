@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessObject.EntityModels;
+using DataAccess;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,10 +10,64 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SalesWinApp {
-    public partial class frmLogin : Form {
-        public frmLogin() {
-            InitializeComponent();
+namespace SalesWinApp;
+
+public partial class frmLogin : Form
+{
+    public frmLogin()
+    {
+        InitializeComponent();
+    }
+
+    private void btnLogin_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            if (txtEmail.Text == "")
+            {
+                MessageBox.Show("Email can't empty!");
+            }
+            else if (txtPassword.Text == "")
+            {
+                MessageBox.Show("Password can't empty!");
+            }
+            else
+            {
+                var member = new Member
+                {
+                    Email = txtEmail.Text,
+                    Passwords = txtPassword.Text
+                };
+                string role = MemberDAO.Instance.checkLogin(member);
+                if (!String.IsNullOrEmpty(role))
+                {
+                    var frm = new frmMemberDetails();
+                    frm.Location = this.Location;
+                    frm.StartPosition = FormStartPosition.Manual;
+                    frm.FormClosing += delegate { this.Show(); };
+                    frm.Show();
+                    // frm.ShowDialOG();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid email or password!");
+                }
+            }
         }
+        catch (Exception ex)
+        {
+            MessageBox.Show(ex.Message, "Login");
+        }
+    }
+
+    private void btnCancel_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void frmLogin_Load(object sender, EventArgs e)
+    {
+
     }
 }

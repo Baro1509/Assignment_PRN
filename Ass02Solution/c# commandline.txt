@@ -1,0 +1,3 @@
+dotnet add package microsoft.entityframeworkcore.design
+dotnet add package microsoft.entityframeworkcore.sqlserver
+dotnet ef dbcontext scaffold "server=(local);database=Ass02;uid=sa;pwd=12345678;" Microsoft.EntityFrameworkCore.SqlServer --output-dir EntityModels
