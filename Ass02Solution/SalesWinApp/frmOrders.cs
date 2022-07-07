@@ -14,6 +14,7 @@ namespace SalesWinApp
     public partial class frmOrders : Form
     {
         IOrderRepository orderRepository = new OrderRepository();
+        public int RoleID;
         BindingSource source;
         public frmOrders()
         {
@@ -33,7 +34,7 @@ namespace SalesWinApp
         {
             int roleID = 2;//ADMIN
             var Orders = orderRepository.GetOrders();
-            if (roleID != 1)
+            if (RoleID != 1)
             {
                 Orders = orderRepository.GetOrdersMember(2);
             }
@@ -64,7 +65,7 @@ namespace SalesWinApp
         {
             int roleID = 2;
             var Orders = orderRepository.GetOrdersBydate(start, end);
-            if (roleID != 1)
+            if (RoleID != 1)
             {
                 Orders = orderRepository.GetOrdersBydateMember(start, end, 2);
             }
