@@ -2147,23 +2147,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ADMIN\\.nuget\\packages\\": {},
-    "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\Ass02Solution\\SalesWinApp\\SalesWinApp.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Documents\\git\\Assignment_PRN\\Ass02Solution\\SalesWinApp\\SalesWinApp.csproj",
       "projectName": "SalesWinApp",
-      "projectPath": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\Ass02Solution\\SalesWinApp\\SalesWinApp.csproj",
-      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\Ass02Solution\\SalesWinApp\\obj\\",
+      "projectPath": "C:\\Users\\Admin\\Documents\\git\\Assignment_PRN\\Ass02Solution\\SalesWinApp\\SalesWinApp.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\Documents\\git\\Assignment_PRN\\Ass02Solution\\SalesWinApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2178,11 +2178,11 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\Ass02Solution\\BusinessObject\\BusinessObject.csproj": {
-              "projectPath": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\Ass02Solution\\BusinessObject\\BusinessObject.csproj"
+            "C:\\Users\\Admin\\Documents\\git\\Assignment_PRN\\Ass02Solution\\BusinessObject\\BusinessObject.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Documents\\git\\Assignment_PRN\\Ass02Solution\\BusinessObject\\BusinessObject.csproj"
             },
-            "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\Ass02Solution\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\Ass02Solution\\DataAccess\\DataAccess.csproj"
+            "C:\\Users\\Admin\\Documents\\git\\Assignment_PRN\\Ass02Solution\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Documents\\git\\Assignment_PRN\\Ass02Solution\\DataAccess\\DataAccess.csproj"
             }
           }
         }
@@ -2214,7 +2214,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

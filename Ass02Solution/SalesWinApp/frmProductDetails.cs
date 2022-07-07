@@ -34,23 +34,6 @@ namespace SalesWinApp
             cboCategoryID.Enabled = false;
             btnSave.Text = "Add to cart";
         }
-        private void frmProductDetails_Load(object sender, EventArgs e)
-        {
-            txtProductId.Enabled = false;
-            if (InsertOrUpdate == true) //Update mode
-            {
-                cboCategoryID.SelectedIndex = Product.CategoryId - 1;
-                txtProductId.Text = Product.ProductId.ToString();
-                txtProductName.Text = Product.ProductName;
-                txtUnitInStock.Text = Product.UnitsInStock.ToString();
-                txtWeight.Text = Product.Weights.ToString();
-                txtUnitPrice.Text = Product.UnitPrice.ToString();
-            }
-            if (RoleID != 1) // Other than admin
-            {
-                LockUpdate();
-            }
-        }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -79,22 +62,27 @@ namespace SalesWinApp
             {
                 MessageBox.Show(ex.Message, InsertOrUpdate == false ? "Add a new product" : "Update product");
             }
-            finally
-            {
-                if (InsertOrUpdate == false) //Insert Mode
-                {
-                    MessageBox.Show("Insert successfully");
-                }
-                else
-                {
-                    MessageBox.Show("Update successfully");
-                }
-                Close();
-
-            }
+            Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e) => Close();
 
+        private void frmProductDetails_Load(object sender, EventArgs e)
+        {
+            txtProductId.Enabled = false;
+            if (InsertOrUpdate == true) //Update mode
+            {
+                cboCategoryID.SelectedIndex = Product.CategoryId - 1;
+                txtProductId.Text = Product.ProductId.ToString();
+                txtProductName.Text = Product.ProductName;
+                txtUnitInStock.Text = Product.UnitsInStock.ToString();
+                txtWeight.Text = Product.Weights.ToString();
+                txtUnitPrice.Text = Product.UnitPrice.ToString();
+            }
+            if (RoleID != 1) // Other than admin
+            {
+                LockUpdate();
+            }
+        }
     }
 }
