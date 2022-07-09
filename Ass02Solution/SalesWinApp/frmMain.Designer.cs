@@ -53,6 +53,8 @@ partial class frmMain
             this.menuProfileManage = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.cartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemViewCart = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox3.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -171,7 +173,8 @@ partial class frmMain
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuProject,
             this.profileToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.helpToolStripMenuItem,
+            this.cartToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
@@ -262,6 +265,20 @@ partial class frmMain
             this.helpToolStripMenuItem.Text = "Help";
             this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
+            // cartToolStripMenuItem
+            // 
+            this.cartToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemViewCart});
+            this.cartToolStripMenuItem.Name = "cartToolStripMenuItem";
+            this.cartToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.cartToolStripMenuItem.Text = "Cart";
+            // 
+            // menuItemViewCart
+            // 
+            this.menuItemViewCart.Name = "menuItemViewCart";
+            this.menuItemViewCart.Size = new System.Drawing.Size(180, 22);
+            this.menuItemViewCart.Text = "View cart";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -312,4 +329,6 @@ partial class frmMain
     private System.Windows.Forms.ToolStripMenuItem menuProfileManage;
     private System.Windows.Forms.BindingSource bindingSource1;
     private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+    private ToolStripMenuItem cartToolStripMenuItem;
+    private ToolStripMenuItem menuItemViewCart;
 }

@@ -91,6 +91,20 @@ namespace DataAccess {
             }
             return orders;
         }
+        public void Insert(Order order)
+        {
+            try
+            {
+                using Ass02Context context = new Ass02Context();
+                context.Orders.Add(order);
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error in OrderDao Insert: " + ex.Message);
+                throw new Exception(ex.Message);
+            }
+        }
 
     }
 }

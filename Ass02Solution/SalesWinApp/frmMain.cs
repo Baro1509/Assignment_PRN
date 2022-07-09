@@ -32,6 +32,7 @@ namespace SalesWinApp
                 menuManageOrder.Visible = false;
                 menuManageProduct.Visible = false;
                 menuManageMember.Visible=false;
+                cartToolStripMenuItem.Visible = true;
             }
             else
             {
@@ -39,6 +40,7 @@ namespace SalesWinApp
                 menuManageOrder.Visible = true;
                 menuManageProduct.Visible = true;
                 menuManageMember.Visible = true;
+                cartToolStripMenuItem.Visible = false;
             }
         }
         private void frmMain_Load(object sender, EventArgs e)
@@ -56,9 +58,8 @@ namespace SalesWinApp
 
         private void menuManageProduct_Click(object sender, EventArgs e)
         {
-            frmProducts frmProduct = new frmProducts();
+            frmProducts frmProduct = new frmProducts(mem);
             frmProduct.Show();
-
         }
 
         private void menuManageOrder_Click(object sender, EventArgs e)

@@ -217,3 +217,4 @@ D:\Learning\SEM5\PRN211\Code\PRN_ASSG2\Assignment_PRN\Ass02Solution\SalesWinApp\
 D:\Learning\SEM5\PRN211\Code\PRN_ASSG2\Assignment_PRN\Ass02Solution\SalesWinApp\obj\Debug\net6.0-windows\SalesWinApp.pdb
 D:\Learning\SEM5\PRN211\Code\PRN_ASSG2\Assignment_PRN\Ass02Solution\SalesWinApp\obj\Debug\net6.0-windows\SalesWinApp.genruntimeconfig.cache
 D:\Learning\SEM5\PRN211\Code\PRN_ASSG2\Assignment_PRN\Ass02Solution\SalesWinApp\obj\Debug\net6.0-windows\ref\SalesWinApp.dll
+D:\Learning\SEM5\PRN211\Code\PRN_ASSG2\Assignment_PRN\Ass02Solution\SalesWinApp\bin\Debug\net6.0-windows\appsettings.json
