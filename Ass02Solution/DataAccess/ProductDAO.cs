@@ -76,7 +76,7 @@ public class ProductDAO
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error in ProductDAO GetAllProducts: " + ex.Message);
+            System.Diagnostics.Debug.WriteLine("Error in ProductDAO GetAllProducts: " + ex.Message);
             throw new Exception(ex.Message);
         }
         return products;
@@ -94,7 +94,7 @@ public class ProductDAO
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error in ProductDAO GetProducts: " + ex.Message);
+            System.Diagnostics.Debug.WriteLine("Error in ProductDAO GetProducts: " + ex.Message);
             throw new Exception(ex.Message);
         }
         return products;
@@ -107,11 +107,12 @@ public class ProductDAO
         try
         {
             using Ass02Context context = new Ass02Context();
-            context.Products.Add(product);
+            context.Products.Update(product);
+            context.SaveChanges();
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error in ProductDAO Update: " + ex.Message);
+            System.Diagnostics.Debug.WriteLine("Error in ProductDAO Update: " + ex.Message);
             throw new Exception(ex.Message);
         }
     }
@@ -123,11 +124,13 @@ public class ProductDAO
         try
         {
             using Ass02Context context = new Ass02Context();
-            context.Remove(product);
+            var pro = context.Products.Find(product.ProductId);
+            context.Products.Remove(pro);
+            context.SaveChanges();
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error in ProductDAO Delete: " + ex.Message);
+            System.Diagnostics.Debug.WriteLine("Error in ProductDAO Delete: " + ex.Message);
             throw new Exception(ex.Message);
         }
     }

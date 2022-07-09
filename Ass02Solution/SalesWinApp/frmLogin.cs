@@ -40,7 +40,7 @@ public partial class frmLogin : Form
                     Passwords = txtPassword.Text
                 };
                 string role = MemberDAO.Instance.checkLogin(member);
-                if (!String.IsNullOrEmpty(role))
+                if (role=="1"|role=="2")
                 {
                     Member mem=MemberDAO.Instance.GetMember(member);
                     var frm = new frmMain(mem);

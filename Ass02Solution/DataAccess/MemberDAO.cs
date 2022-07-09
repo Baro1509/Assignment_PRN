@@ -91,12 +91,12 @@ namespace DataAccess
 
         public string checkLogin(Member member)
         {
-            string mem="";
+            string mem = "";
             try
             {
                 Ass02Context ctx = new Ass02Context();
-                mem = ctx.Members.Where(m => m.Email.Equals(member.Email) && m.Passwords.Equals(member.Passwords)).Select(r=>r.RoleId).FirstOrDefault().ToString();
-                
+                mem = ctx.Members.Where(m => m.Email.Equals(member.Email) && m.Passwords.Equals(member.Passwords)).Select(r => r.RoleId).FirstOrDefault().ToString();
+
             }
             catch (Exception ex) { throw new Exception(ex.Message); }
             return mem;

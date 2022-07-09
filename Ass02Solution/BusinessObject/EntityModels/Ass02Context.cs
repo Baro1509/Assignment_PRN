@@ -30,6 +30,7 @@ namespace BusinessObject.EntityModels
 
                 optionsBuilder.UseSqlServer("server=(local); database = Ass02;uid=sa;pwd=1;");
 
+
             }
         }
 
