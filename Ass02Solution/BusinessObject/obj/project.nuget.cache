@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2VNO7oE6IEcnAw6Eqx9b4Q6d0eOcbuPCO08NRZznxOKs9NfsVq9RFmAq9ZYhE3WVZYFefhSyL4tbJx3Y3FAPlg==",
+  "dgSpecHash": "t8Rn+VSgep2Lm0BnUbFhLGTM/kIp6x097sZDQfHfWaxo5QKkY98ZLtaCLcL+6lBtjIvcEripezAGbo8qu3fqDw==",
   "success": true,
   "projectFilePath": "D:\\Learning\\SEM5\\PRN211\\Code\\PRN_ASSG2\\Assignment_PRN\\Ass02Solution\\BusinessObject\\BusinessObject.csproj",
   "expectedPackageFiles": [
@@ -47,5 +47,12 @@
     "C:\\Users\\ADMIN\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\Learning\\SEM5\\PRN211\\Code\\PRN_ASSG2\\Assignment_PRN\\Ass02Solution\\BusinessObject\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

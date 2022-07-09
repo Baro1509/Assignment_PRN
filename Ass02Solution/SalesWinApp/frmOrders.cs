@@ -14,12 +14,18 @@ namespace SalesWinApp
     public partial class frmOrders : Form
     {
         IOrderRepository orderRepository = new OrderRepository();
+        Member mem;
         BindingSource source;
         public frmOrders()
         {
             InitializeComponent();
         }
-
+        public frmOrders(Member mem)
+        {
+            InitializeComponent();
+            this.mem = mem;
+        }
+       
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -31,11 +37,12 @@ namespace SalesWinApp
         }
         public void LoadOrderList()
         {
-            int roleID = 2;//ADMIN
+            int roleID = mem.RoleId;
+            int memberID=mem.MemberId;
             var Orders = orderRepository.GetOrders();
             if (roleID != 1)
             {
-                Orders = orderRepository.GetOrdersMember(2);
+                Orders = orderRepository.GetOrdersMember(memberID);
             }
             
             try
@@ -62,11 +69,12 @@ namespace SalesWinApp
         }
         public void FilterOrderList(DateTime start, DateTime end,int days)
         {
-            int roleID = 2;
+            int roleID = mem.RoleId;
+            int memberID = mem.MemberId;
             var Orders = orderRepository.GetOrdersBydate(start, end);
             if (roleID != 1)
             {
-                Orders = orderRepository.GetOrdersBydateMember(start, end, 2);
+                Orders = orderRepository.GetOrdersBydateMember(start, end, memberID);
             }
             try
             {

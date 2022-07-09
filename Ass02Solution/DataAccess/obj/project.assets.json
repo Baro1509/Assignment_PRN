@@ -765,6 +765,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.6",
           "microsoft.entityframeworkcore.sqlserver": "6.0.6"
         },
         "compile": {
@@ -2310,5 +2311,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\Learning\\SEM5\\PRN211\\Code\\PRN_ASSG2\\Assignment_PRN\\Ass02Solution\\DataAccess\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

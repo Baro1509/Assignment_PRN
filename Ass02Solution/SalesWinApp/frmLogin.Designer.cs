@@ -75,6 +75,7 @@ partial class frmLogin
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtPassword.Location = new System.Drawing.Point(232, 81);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(215, 38);
             this.txtPassword.TabIndex = 3;
             // 

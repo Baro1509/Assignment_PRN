@@ -42,6 +42,11 @@ namespace DataAccess {
             }
             return orders;
         }
+        public int GetMemberID(string memberID)
+        {
+            int memID=int.Parse(memberID);
+            return memID;
+        }
         public List<Order> GetOrdersBydate(DateTime starDate,DateTime endDate)
         {
             List<Order> orders;
