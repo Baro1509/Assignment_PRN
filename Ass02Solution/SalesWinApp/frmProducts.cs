@@ -9,6 +9,7 @@ namespace SalesWinApp
         public IProductRepositoy ProductRepository { get; set; }
         Member mem;
         public int RoleID;
+        Cart Cart;
         BindingSource source;
         public frmProducts()
         {
@@ -20,7 +21,14 @@ namespace SalesWinApp
             this.mem = mem;
             RoleID = mem.RoleId;
         }
-        
+
+        public frmProducts(Member mem, Cart cart) {
+            InitializeComponent();
+            this.mem = mem;
+            RoleID = mem.RoleId;
+            this.Cart = cart;
+        }
+
         public void ClearText()
         {
             txtProductId.Text = string.Empty;
@@ -84,7 +92,8 @@ namespace SalesWinApp
             btnDelete.Enabled = false;
             if (RoleID != 1)
             {
-                btnCreate.Enabled = false;
+                btnCreate.Text = "View cart";
+                btnDelete.Text = "Add to cart";
             }
             //dgvProducts.CellDoubleClick += dgvProducts_CellDoubleClick;
         }
@@ -114,6 +123,9 @@ namespace SalesWinApp
                     //set focus product updated
                     source.Position = source.Count - 1;
                 }
+            } else if (mem.RoleId == 2) {
+                frmCart frmCart = new frmCart(mem, Cart);
+                this.Close();
             }
 
         }
@@ -217,6 +229,16 @@ namespace SalesWinApp
                     ProductRepository.Delete(product);
                     var products = ProductRepository.GetAllProducts();
                     LoadProducts(products);
+                }else if (mem.RoleId == 2) { //User role add to cart
+                    var product = GetProduct();
+                    ProductRepository = new ProductRepository();
+                    product = ProductRepository.GetProductByID(product.ProductId);
+                    //Check if item already in cart to increase or decrease
+                    if (Cart.CheckProduct(product)) {
+                        Cart.UpdateProduct(product);
+                    } else {
+                        Cart.AddProduct(product);
+                    }
                 }
             }
             catch (Exception ex)

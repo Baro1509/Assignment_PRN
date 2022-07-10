@@ -29,6 +29,19 @@ namespace DataAccess {
             }
         }
         public OrderDetailDAO() { }
+
+        public List<OrderDetail> GetOrderDetails() {
+            List<OrderDetail> list;
+            try {
+                Ass02Context context = new Ass02Context();
+                list = context.OrderDetails.ToList();
+
+            } catch (Exception ex) {
+                throw new Exception(ex.Message);
+            }
+            return list ;
+        }
+
         public List<OrderDetail> GetOrdersDetailsByOID(int OrderID)
         {
             List<OrderDetail> orderDetails;

@@ -24,10 +24,10 @@ namespace SalesWinApp
             InitializeComponent();
             this.mem = mem;
         }
-        private void authorized(string role)
+        private void authorized(int role)
         {
             
-            if (role == "2")
+            if (role == 2)
             {
                 menuManageMember.Visible= false;
                 menuManageOrder.Visible = false;
@@ -46,7 +46,7 @@ namespace SalesWinApp
         }
         private void frmMain_Load(object sender, EventArgs e)
         {
-            authorized(mem.RoleId.ToString());
+            authorized(mem.RoleId);
             //check role sau khi log in
             //neu la user thi unenable menuManageMember, menuManageOrder, menuManageOrder
         }
@@ -91,6 +91,10 @@ namespace SalesWinApp
 
         private void menuProject_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnBuyProduct_Click(object sender, EventArgs e) {
 
         }
     }

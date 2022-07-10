@@ -52,9 +52,10 @@ partial class frmMain
             this.profileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuProfileManage = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.cartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemViewCart = new System.Windows.Forms.ToolStripMenuItem();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.btnBuyProduct = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -79,9 +80,9 @@ partial class frmMain
             this.flowLayoutPanel4.Controls.Add(this.button5);
             this.flowLayoutPanel4.Controls.Add(this.button6);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 19);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 23);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(397, 48);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(397, 44);
             this.flowLayoutPanel4.TabIndex = 21;
             // 
             // button4
@@ -139,9 +140,9 @@ partial class frmMain
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(3, 39);
+            this.label7.Location = new System.Drawing.Point(3, 36);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 21);
+            this.label7.Size = new System.Drawing.Size(110, 28);
             this.label7.TabIndex = 14;
             this.label7.Text = "Member ID";
             // 
@@ -150,7 +151,7 @@ partial class frmMain
             this.textBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox7.Location = new System.Drawing.Point(119, 36);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(78, 23);
+            this.textBox7.Size = new System.Drawing.Size(78, 27);
             this.textBox7.TabIndex = 15;
             // 
             // tabPage2
@@ -177,8 +178,8 @@ partial class frmMain
             this.cartToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(852, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
+            this.menuStrip1.Size = new System.Drawing.Size(974, 30);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -193,54 +194,54 @@ partial class frmMain
             this.toolStripSeparator2,
             this.menuExit});
             this.menuProject.Name = "menuProject";
-            this.menuProject.Size = new System.Drawing.Size(56, 20);
+            this.menuProject.Size = new System.Drawing.Size(69, 24);
             this.menuProject.Text = "Project";
             this.menuProject.Click += new System.EventHandler(this.menuProject_Click);
             // 
             // menuManageMember
             // 
             this.menuManageMember.Name = "menuManageMember";
-            this.menuManageMember.Size = new System.Drawing.Size(180, 22);
+            this.menuManageMember.Size = new System.Drawing.Size(212, 26);
             this.menuManageMember.Text = "Manage member";
             this.menuManageMember.Click += new System.EventHandler(this.menuManageMember_Click);
             // 
             // menuManageProduct
             // 
             this.menuManageProduct.Name = "menuManageProduct";
-            this.menuManageProduct.Size = new System.Drawing.Size(180, 22);
+            this.menuManageProduct.Size = new System.Drawing.Size(212, 26);
             this.menuManageProduct.Text = "Manage product";
             this.menuManageProduct.Click += new System.EventHandler(this.menuManageProduct_Click);
             // 
             // menuManageOrder
             // 
             this.menuManageOrder.Name = "menuManageOrder";
-            this.menuManageOrder.Size = new System.Drawing.Size(180, 22);
+            this.menuManageOrder.Size = new System.Drawing.Size(212, 26);
             this.menuManageOrder.Text = "Manage Order";
             this.menuManageOrder.Click += new System.EventHandler(this.menuManageOrder_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(209, 6);
             // 
             // menuViewOrderHistory
             // 
             this.menuViewOrderHistory.Name = "menuViewOrderHistory";
-            this.menuViewOrderHistory.Size = new System.Drawing.Size(180, 22);
+            this.menuViewOrderHistory.Size = new System.Drawing.Size(212, 26);
             this.menuViewOrderHistory.Text = "View order history";
             this.menuViewOrderHistory.Click += new System.EventHandler(this.menuViewOrderHistory_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(209, 6);
             // 
             // menuExit
             // 
             this.menuExit.Name = "menuExit";
             this.menuExit.ShortcutKeyDisplayString = "";
             this.menuExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.menuExit.Size = new System.Drawing.Size(180, 22);
+            this.menuExit.Size = new System.Drawing.Size(212, 26);
             this.menuExit.Text = "Exit";
             this.menuExit.Click += new System.EventHandler(this.menuExit_Click);
             // 
@@ -249,19 +250,19 @@ partial class frmMain
             this.profileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuProfileManage});
             this.profileToolStripMenuItem.Name = "profileToolStripMenuItem";
-            this.profileToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.profileToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
             this.profileToolStripMenuItem.Text = "Profile";
             // 
             // menuProfileManage
             // 
             this.menuProfileManage.Name = "menuProfileManage";
-            this.menuProfileManage.Size = new System.Drawing.Size(154, 22);
+            this.menuProfileManage.Size = new System.Drawing.Size(194, 26);
             this.menuProfileManage.Text = "Manage profile";
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
             this.helpToolStripMenuItem.Text = "Help";
             this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
@@ -270,23 +271,34 @@ partial class frmMain
             this.cartToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemViewCart});
             this.cartToolStripMenuItem.Name = "cartToolStripMenuItem";
-            this.cartToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.cartToolStripMenuItem.Size = new System.Drawing.Size(50, 24);
             this.cartToolStripMenuItem.Text = "Cart";
             // 
             // menuItemViewCart
             // 
             this.menuItemViewCart.Name = "menuItemViewCart";
-            this.menuItemViewCart.Size = new System.Drawing.Size(180, 22);
+            this.menuItemViewCart.Size = new System.Drawing.Size(153, 26);
             this.menuItemViewCart.Text = "View cart";
+            // 
+            // btnBuyProduct
+            // 
+            this.btnBuyProduct.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnBuyProduct.Location = new System.Drawing.Point(382, 501);
+            this.btnBuyProduct.Name = "btnBuyProduct";
+            this.btnBuyProduct.Size = new System.Drawing.Size(187, 42);
+            this.btnBuyProduct.TabIndex = 3;
+            this.btnBuyProduct.Text = "Buy Product";
+            this.btnBuyProduct.UseVisualStyleBackColor = true;
+            this.btnBuyProduct.Click += new System.EventHandler(this.btnBuyProduct_Click);
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(852, 416);
+            this.ClientSize = new System.Drawing.Size(974, 555);
+            this.Controls.Add(this.btnBuyProduct);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMain";
@@ -331,5 +343,5 @@ partial class frmMain
     private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
     private ToolStripMenuItem cartToolStripMenuItem;
     private ToolStripMenuItem menuItemViewCart;
-
+    private Button btnBuyProduct;
 }
