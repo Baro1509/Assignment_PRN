@@ -14,6 +14,7 @@ namespace SalesWinApp
     public partial class frmMain : Form
     {
         Member mem;   
+        Cart cart;
         public frmMain()
         {
             InitializeComponent();

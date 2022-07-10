@@ -331,4 +331,5 @@ partial class frmMain
     private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
     private ToolStripMenuItem cartToolStripMenuItem;
     private ToolStripMenuItem menuItemViewCart;
+
 }

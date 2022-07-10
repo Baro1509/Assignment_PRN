@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1TiiXWYTZ9Y0Lu6iYQlvMYXcFPatSM2MvNoAb8Uw+8nrWRc8ra5e2aPGEf1Y0YKStJRqubkF1BvwsAkDJcqx0Q==",
+  "dgSpecHash": "427XbAU35mRV+tAuFwpaNS4js3WkWJQ7t7i9B4uu1dZZNaqi/xMOfPf4BeSZqyk6YiUpg020cjf6wSxSy3U2OA==",
   "success": true,
   "projectFilePath": "D:\\Learning\\SEM5\\PRN211\\Code\\PRN_ASSG2\\Assignment_PRN\\Ass02Solution\\DataAccess\\DataAccess.csproj",
   "expectedPackageFiles": [
@@ -56,12 +56,5 @@
     "C:\\Users\\ADMIN\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\Learning\\SEM5\\PRN211\\Code\\PRN_ASSG2\\Assignment_PRN\\Ass02Solution\\DataAccess\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
