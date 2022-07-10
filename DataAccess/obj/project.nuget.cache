@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
+  "dgSpecHash": "SlSwWuZpXv1+GAxyQTSlhDqVlGwSoB5BcB6CXPCooeeWVdU3NDoaYCxGrBxcZp0WUJDIs7d/eKHwyxRERr+VJw==",
+  "success": true,
+  "projectFilePath": "D:\\Learning\\SEM5\\PRN211\\Code\\PRN_ASSG2\\Assignment_PRN\\DataAccess\\DataAccess.csproj",
+=======
   "dgSpecHash": "MZ/4AKK80YblONqRZm16HyOOcXfq1JI4WBRf427MT0Q2eWLGfa5lGfNKqke+XAjdST9VhjM2JhGFLakm277IhA==",
   "success": true,
   "projectFilePath": "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\DataAccess\\DataAccess.csproj",
+>>>>>>> b8909f2bf57f46f2146f8a79c04c8085842456f5
   "expectedPackageFiles": [
     "C:\\Users\\thong\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\thong\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

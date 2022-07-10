@@ -31,5 +31,6 @@ namespace DataAccess.Repository {
         {
             MemberDAO.Instance.Update(member);
         }
+        public Member GetMember(Member member) =>MemberDAO.Instance.GetMember(member);
     }
 }

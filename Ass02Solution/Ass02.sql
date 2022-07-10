@@ -5,7 +5,7 @@ USE Ass02
 
 -- TABLE
 CREATE TABLE Members (
-	MemberID int PRIMARY KEY,
+	MemberID int IDENTITY PRIMARY KEY,
 	Email varchar(100) NOT NULL,
 	CompanyName varchar(40) NOT NULL,
 	City varchar(15) NOT NULL,
@@ -15,12 +15,12 @@ CREATE TABLE Members (
 )
 
 CREATE TABLE Roles (
-	RoleID int PRIMARY KEY,
+	RoleID int IDENTITY PRIMARY KEY,
 	RoleName varchar(10),
 )
 
 CREATE TABLE Orders (
-	OrderID int PRIMARY KEY,
+	OrderID int IDENTITY PRIMARY KEY,
 	MemberID int NOT NULL,
 	OrderDate datetime NOT NULL,
 	RequiredDate datetime,
@@ -37,7 +37,7 @@ CREATE TABLE OrderDetails (
 )
 
 CREATE TABLE Products (
-	ProductID int PRIMARY KEY,
+	ProductID int IDENTITY PRIMARY KEY,
 	CategoryID int NOT NULL,
 	ProductName varchar(100) NOT NULL,
 	Weights varchar(20) NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE Products (
 )
 
 CREATE TABLE Categories (
-	CategoryID int PRIMARY KEY,
+	CategoryID int IDENTITY PRIMARY KEY,
 	CategoryName varchar(100)
 )
 
@@ -60,20 +60,27 @@ ALTER TABLE Products ADD FOREIGN KEY (CategoryID) REFERENCES Categories(Category
 
 -- Insert data
 ---- Categories
-INSERT INTO Categories(CategoryID, CategoryName) VALUES (1, 'Car')
-INSERT INTO Categories(CategoryID, CategoryName) VALUES (2, 'Book')
+INSERT INTO Categories(CategoryName) VALUES ('Car')
+INSERT INTO Categories(CategoryName) VALUES ('Book')
 
 ---- Products
-INSERT INTO Products(ProductID, CategoryID, ProductName, Weights, UnitPrice, UnitsInStock) VALUES (1, 1, 'Santa Fe', '2 tons', 60000, 10)
-INSERT INTO Products(ProductID, CategoryID, ProductName, Weights, UnitPrice, UnitsInStock) VALUES (2, 1, 'Hyundai Sedan', '3 tons', 75000, 5)
-INSERT INTO Products(ProductID, CategoryID, ProductName, Weights, UnitPrice, UnitsInStock) VALUES (3, 2, '48 Laws of Power', '150 grams', 5, 285)
-INSERT INTO Products(ProductID, CategoryID, ProductName, Weights, UnitPrice, UnitsInStock) VALUES (4, 2, 'Design Patterns, Elements of reusable Object-Oriented Software', '200 grams', 15, 98)
+INSERT INTO Products(CategoryID, ProductName, Weights, UnitPrice, UnitsInStock) VALUES (1, 'Santa Fe', '2 tons', 60000, 10)
+INSERT INTO Products(CategoryID, ProductName, Weights, UnitPrice, UnitsInStock) VALUES (1, 'Hyundai Sedan', '3 tons', 75000, 5)
+INSERT INTO Products(CategoryID, ProductName, Weights, UnitPrice, UnitsInStock) VALUES (2, '48 Laws of Power', '150 grams', 5, 285)
+INSERT INTO Products(CategoryID, ProductName, Weights, UnitPrice, UnitsInStock) VALUES (2, 'Design Patterns, Elements of reusable Object-Oriented Software', '200 grams', 15, 98)
 
 ---- Roles
-INSERT INTO Roles(RoleID, RoleName) VALUES (1, 'Admin')
-INSERT INTO Roles(RoleID, RoleName) VALUES (2, 'User')
+INSERT INTO Roles(RoleName) VALUES ('Admin')
+INSERT INTO Roles(RoleName) VALUES ('Member')
 
 ---- Members
-INSERT INTO Members(MemberID, Email, CompanyName, City, Country, Passwords, RoleID) VALUES (1, 'admin@gmail.com', 'P&G', 'Ho Chi Minh', 'VietNam', '12345678', 1)
-INSERT INTO Members(MemberID, Email, CompanyName, City, Country, Passwords, RoleID) VALUES (2, 'user1@gmail.com', 'FPT', 'Ho Chi Minh', 'VietNam', '12345678', 2)
-INSERT INTO Members(MemberID, Email, CompanyName, City, Country, Passwords, RoleID) VALUES (3, 'user2@gmail.com', 'Vietcombank', 'Ho Chi Minh', 'VietNam', '12345678', 2)
+INSERT INTO Members(Email, CompanyName, City, Country, Passwords, RoleID) VALUES ('admin@gmail.com', 'P&G', 'Ho Chi Minh', 'VietNam', '12345678', 1)
+INSERT INTO Members(Email, CompanyName, City, Country, Passwords, RoleID) VALUES ('user1@gmail.com', 'FPT', 'Ho Chi Minh', 'VietNam', '12345678', 2)
+INSERT INTO Members(Email, CompanyName, City, Country, Passwords, RoleID) VALUES ('user2@gmail.com', 'Vietcombank', 'Ho Chi Minh', 'VietNam', '12345678', 2)
+
+--DROP TABLE OrderDetails
+--DROP TABLE Orders
+--DROP TABLE Products
+--DROP TABLE Categories
+--DROP TABLE Members
+--DROP TABLE Roles

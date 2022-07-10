@@ -91,15 +91,25 @@ namespace DataAccess
 
         public string checkLogin(Member member)
         {
-            string mem="";
+            string mem = "";
             try
             {
                 Ass02Context ctx = new Ass02Context();
-                mem = ctx.Members.Where(m => m.Email.Equals(member.Email) && m.Passwords.Equals(member.Passwords)).Select(r=>r.RoleId).FirstOrDefault().ToString();
-                
+                mem = ctx.Members.Where(m => m.Email.Equals(member.Email) && m.Passwords.Equals(member.Passwords)).Select(r => r.RoleId).FirstOrDefault().ToString();
+
             }
             catch (Exception ex) { throw new Exception(ex.Message); }
             return mem;
+        }
+        public Member GetMember(Member mem)
+        {
+            Member member = null;
+            try
+            {
+                Ass02Context ctx = new Ass02Context();
+                member = ctx.Members.Where(m => m.Email.Equals(mem.Email) && m.Passwords.Equals(mem.Passwords)).FirstOrDefault();
+            } catch(Exception ex) { throw new Exception(ex.Message); }
+            return member;
         }
     }
 }

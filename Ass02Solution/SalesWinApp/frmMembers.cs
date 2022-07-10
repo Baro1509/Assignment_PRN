@@ -60,7 +60,7 @@ namespace SalesWinApp
                 LoadMembers();
             }catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Create Category");
+                MessageBox.Show(ex.Message, "Create member");
             }
         }
 

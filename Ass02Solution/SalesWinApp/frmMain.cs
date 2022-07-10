@@ -7,44 +7,72 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using BusinessObject.EntityModels;
+using DataAccess;
 namespace SalesWinApp
 {
     public partial class frmMain : Form
     {
+        Member mem;   
+        Cart cart;
         public frmMain()
         {
             InitializeComponent();
         }
-
+        public frmMain(Member mem)
+        {
+            InitializeComponent();
+            this.mem = mem;
+        }
+        private void authorized(string role)
+        {
+            
+            if (role == "2")
+            {
+                menuManageMember.Visible= false;
+                menuManageOrder.Visible = false;
+                menuManageProduct.Visible = false;
+                menuManageMember.Visible=false;
+                cartToolStripMenuItem.Visible = true;
+            }
+            else
+            {
+                menuManageMember.Visible = true;
+                menuManageOrder.Visible = true;
+                menuManageProduct.Visible = true;
+                menuManageMember.Visible = true;
+                cartToolStripMenuItem.Visible = false;
+            }
+        }
         private void frmMain_Load(object sender, EventArgs e)
         {
+            authorized(mem.RoleId.ToString());
             //check role sau khi log in
             //neu la user thi unenable menuManageMember, menuManageOrder, menuManageOrder
         }
 
         private void menuManageMember_Click(object sender, EventArgs e)
         {
-            frmMembers frmMember = new frmMembers();
+            frmMembers frmMember = new frmMembers(mem.RoleId.ToString());
             frmMember.Show();
         }
 
         private void menuManageProduct_Click(object sender, EventArgs e)
         {
-            frmProducts frmProduct = new frmProducts();
+            frmProducts frmProduct = new frmProducts(mem);
             frmProduct.Show();
-
         }
 
         private void menuManageOrder_Click(object sender, EventArgs e)
         {
-            frmOrders frmOrder = new frmOrders();
+            frmOrders frmOrder = new frmOrders(mem);
             frmOrder.Show();
         }
 
         private void menuViewOrderHistory_Click(object sender, EventArgs e)
         {
-
+            frmOrders frmOrder = new frmOrders(mem);
+            frmOrder.Show();
         }
 
         private void menuExit_Click(object sender, EventArgs e)
@@ -59,6 +87,11 @@ namespace SalesWinApp
                 "Click 'Create' button to create new item\n" +
                 "Click 'Delete' button to delete the choose item\n" +
                 "DoubleClick the item to update the item\n");
+        }
+
+        private void menuProject_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

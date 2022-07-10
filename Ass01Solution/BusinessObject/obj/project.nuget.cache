@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "/F4PU8q4hTU7FBnYatvv7yHFvlKpDtU4DzHaXhArPx6eEw7drNT2R8gOis5Of+bmlkEI0DFZbfZGbeoqG4FWbQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Admin\\Desktop\\VSCODE\\C#\\Assignment1_SOL\\BusinessObject\\BusinessObject.csproj",
+=======
+  "dgSpecHash": "ZDF1nWUobKaWsDoAvnqlZAHkc/8o4emHiQzfme2Tni7Vty12nqlN5hvxaQBu0sTjbv4ZMnk1Q4W1ZCczMgvhiA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Truong\\Downloads\\Assignment_PRN-devs\\Ass01Solution\\BusinessObject\\BusinessObject.csproj",
+>>>>>>> origin/devs
   "expectedPackageFiles": [],
   "logs": []
 }

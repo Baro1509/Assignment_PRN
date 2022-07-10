@@ -12,5 +12,6 @@ namespace DataAccess.Repository {
         void UpdateMember(Member member);
         void DeleteMember(int id);
         void InsertMember(Member member);
+        Member GetMember(Member member);
     }
 }
