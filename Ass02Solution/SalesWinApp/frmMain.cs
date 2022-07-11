@@ -55,7 +55,7 @@ namespace SalesWinApp
 
         private void menuManageMember_Click(object sender, EventArgs e)
         {
-            frmMembers frmMember = new frmMembers(mem.RoleId.ToString());
+            frmMembers frmMember = new frmMembers(mem.RoleId);
             frmMember.Show();
         }
 

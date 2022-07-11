@@ -14,20 +14,20 @@ namespace SalesWinApp
 {
     public partial class frmMembers : Form
     {
-        string role = "";
+        int role;
         BindingSource source;
         public frmMembers()
         {
             InitializeComponent();
         }
-        public frmMembers(string role)
+        public frmMembers(int role)
         {
             InitializeComponent();
             this.role = role;
         }
-        private void authorized(string role)
+        private void authorized(int role)
         {
-            if (role == "2")
+            if (role == 2)
             {
                 btnDelete.Enabled = false;
             }
@@ -139,8 +139,23 @@ namespace SalesWinApp
         {
             try
             {
-                
-            }catch(Exception ex)
+                Member member = new Member
+                {
+                    MemberId = int.Parse(txtMemberId.Text),
+                    Email = txtEmail.Text,
+                    Passwords = txtPassword.Text,
+                    CompanyName = txtCompanyName.Text,
+                    City = txtCity.Text,
+                    Country = txtCountry.Text,
+                };
+                var frm = new frmMemberDetails(member);
+                frm.Location = this.Location;
+                frm.StartPosition = FormStartPosition.Manual;
+                frm.FormClosing += delegate { this.Show(); };
+                frm.Show();
+                this.Hide();
+            }
+            catch(Exception ex)
             {
                 throw new Exception(ex.Message);
             }
