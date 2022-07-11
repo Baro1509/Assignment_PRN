@@ -41,6 +41,7 @@ namespace SalesWinApp
         {
             try
             {
+                var p = MemberDAO.Instance.GetMember(mem);
                 Member member = new Member
                 {
                     MemberId = int.Parse(txtMemberId.Text),
@@ -49,7 +50,7 @@ namespace SalesWinApp
                     CompanyName = txtCompanyName.Text,
                     Country = txtCountry.Text,
                     Email = txtEmail.Text,
-                    RoleId = 2
+                    RoleId = p.RoleId
                 };
                 //MemberRepository = new MemberRepository();
                 //MemberRepository.UpdateMember(member);
