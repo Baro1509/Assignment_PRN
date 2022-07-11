@@ -79,7 +79,7 @@ namespace SalesWinApp
             {
                 btnCreate.Enabled = false;
             }
-            dgvProducts.CellDoubleClick += dgvProducts_CellDoubleClick;
+            //dgvProducts.CellDoubleClick += dgvProducts_CellDoubleClick;
         }
         private void btnLoad_Click(object sender, EventArgs e)
         {

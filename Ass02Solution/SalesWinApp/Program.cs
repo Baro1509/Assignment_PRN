@@ -13,7 +13,7 @@ namespace SalesWinApp
             ApplicationConfiguration.Initialize();
             Application.Run(new frmProducts
             {
-                RoleID = 2
+                RoleID = 1
             });
         }
     }
