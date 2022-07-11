@@ -8,6 +8,12 @@ public class Cart {
     public Member Member { get; set; }
     public List<Product> list { get; set; }
     
+    public Cart() { }
+
+    public Cart(Member member) { 
+        Member = member;
+        list = new List<Product>();
+    }
 
     public void AddProduct(Product product) {
         list.Add(product);

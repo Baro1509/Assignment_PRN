@@ -25,7 +25,9 @@ namespace SalesWinApp {
             InitializeComponent();
             this.Member = member;
             this.Cart = cart;
-            LoadProducts(Cart.list);
+            if (cart != null) {
+                LoadProducts(Cart.list);
+            }
         }
 
         public Product GetProduct(int id) {
