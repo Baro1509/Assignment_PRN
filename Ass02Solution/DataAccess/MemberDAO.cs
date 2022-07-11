@@ -39,18 +39,32 @@ namespace DataAccess
             }
             return members;
         }
-        public void Insert(Member member)
+        public string Insert(Member member)
         {
+            string message="";
             try
             {
                 Ass02Context ctx = new Ass02Context();
-                ctx.Members.Add(member);
-                ctx.SaveChanges();
+                var mem = ctx.Members.Where(e =>e.Email.Equals(member.Email) || e.MemberId == member.MemberId ).FirstOrDefault();
+                if (mem != null)
+                {
+                    message = "Email or Id cannot duplicate!!";
+                }
+                else
+                {
+                    ctx.Members.Add(member);
+                    ctx.SaveChanges();
+                    message = "Create successfully!!";
+                }
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
+            return message;
+            
+
+            
         }
 
         public void Update(Member member)
@@ -63,12 +77,12 @@ namespace DataAccess
             }
             catch (Exception ex) { throw new Exception(ex.Message); }
         }
-        public void Delete(Member member)
+        public void Delete(int id)
         {
             try
             {
                 Ass02Context ctx = new Ass02Context();
-                var mem = ctx.Members.FirstOrDefault(x => x.MemberId == member.MemberId);
+                var mem = ctx.Members.FirstOrDefault(x => x.MemberId == id);
                 ctx.Members.Remove(mem);
                 ctx.SaveChanges();
             }
@@ -77,18 +91,25 @@ namespace DataAccess
 
         public string checkLogin(Member member)
         {
-            string role = "";
+            string mem = "";
             try
             {
                 Ass02Context ctx = new Ass02Context();
-                var mem = ctx.Members.Where(m => m.Email.Equals(member.Email) && m.Passwords.Equals(member.Passwords)).FirstOrDefault();
-                if (mem != null)
-                {
-                    role = mem.RoleId.ToString();
-                }
+                mem = ctx.Members.Where(m => m.Email.Equals(member.Email) && m.Passwords.Equals(member.Passwords)).Select(r => r.RoleId).FirstOrDefault().ToString();
+
             }
             catch (Exception ex) { throw new Exception(ex.Message); }
-            return role;
+            return mem;
+        }
+        public Member GetMember(Member mem)
+        {
+            Member member = null;
+            try
+            {
+                Ass02Context ctx = new Ass02Context();
+                member = ctx.Members.Where(m => m.Email.Equals(mem.Email) && m.Passwords.Equals(mem.Passwords)).FirstOrDefault();
+            } catch(Exception ex) { throw new Exception(ex.Message); }
+            return member;
         }
     }
 }

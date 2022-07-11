@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataAccess.Repository;
 
 namespace SalesWinApp;
 
@@ -39,9 +40,10 @@ public partial class frmLogin : Form
                     Passwords = txtPassword.Text
                 };
                 string role = MemberDAO.Instance.checkLogin(member);
-                if (!String.IsNullOrEmpty(role))
+                if (role=="1"|role=="2")
                 {
-                    var frm = new frmMemberDetails();
+                    Member mem=MemberDAO.Instance.GetMember(member);
+                    var frm = new frmMain(mem);
                     frm.Location = this.Location;
                     frm.StartPosition = FormStartPosition.Manual;
                     frm.FormClosing += delegate { this.Show(); };
@@ -63,7 +65,7 @@ public partial class frmLogin : Form
 
     private void btnCancel_Click(object sender, EventArgs e)
     {
-
+        Application.Exit();
     }
 
     private void frmLogin_Load(object sender, EventArgs e)

@@ -36,7 +36,7 @@ namespace SalesWinApp
             this.lbMemberId = new System.Windows.Forms.Label();
             this.lbPassword = new System.Windows.Forms.Label();
             this.txtMemberId = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvMembers = new System.Windows.Forms.DataGridView();
             this.tblButton = new System.Windows.Forms.TableLayoutPanel();
             this.btnCreate = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
@@ -50,7 +50,7 @@ namespace SalesWinApp
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             tblMember = new System.Windows.Forms.TableLayoutPanel();
             tblMember.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMembers)).BeginInit();
             this.tblButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
@@ -68,7 +68,7 @@ namespace SalesWinApp
             tblMember.Controls.Add(this.lbMemberId, 0, 0);
             tblMember.Controls.Add(this.lbPassword, 0, 2);
             tblMember.Controls.Add(this.txtMemberId, 1, 0);
-            tblMember.Controls.Add(this.dataGridView1, 2, 4);
+            tblMember.Controls.Add(this.dgvMembers, 2, 4);
             tblMember.Controls.Add(this.tblButton, 0, 3);
             tblMember.Controls.Add(this.lbCountry, 2, 2);
             tblMember.Controls.Add(this.txtCountry, 3, 2);
@@ -116,6 +116,7 @@ namespace SalesWinApp
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(230, 27);
             this.txtPassword.TabIndex = 8;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // lbMemberId
             // 
@@ -147,17 +148,19 @@ namespace SalesWinApp
             this.txtMemberId.Size = new System.Drawing.Size(230, 27);
             this.txtMemberId.TabIndex = 6;
             // 
-            // dataGridView1
+            // dgvMembers
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tblMember.SetColumnSpan(this.dataGridView1, 4);
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 159);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(751, 190);
-            this.dataGridView1.TabIndex = 12;
+            this.dgvMembers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            tblMember.SetColumnSpan(this.dgvMembers, 4);
+            this.dgvMembers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvMembers.Location = new System.Drawing.Point(3, 159);
+            this.dgvMembers.Name = "dgvMembers";
+            this.dgvMembers.RowHeadersWidth = 51;
+            this.dgvMembers.RowTemplate.Height = 29;
+            this.dgvMembers.Size = new System.Drawing.Size(751, 190);
+            this.dgvMembers.TabIndex = 12;
+            this.dgvMembers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMembers_CellContentClick);
+            this.dgvMembers.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMembers_CellContentDoubleClick);
             // 
             // tblButton
             // 
@@ -284,7 +287,7 @@ namespace SalesWinApp
             this.Load += new System.EventHandler(this.frmMember_Load);
             tblMember.ResumeLayout(false);
             tblMember.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMembers)).EndInit();
             this.tblButton.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
@@ -303,7 +306,7 @@ namespace SalesWinApp
         private System.Windows.Forms.Label lbCountry;
         private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.TextBox txtCountry;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvMembers;
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.TextBox txtPassword;

@@ -1,23 +1,37 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\frmLogin\\frmLogin.csproj": {}
+<<<<<<< HEAD
+    "D:\\Learning\\SEM5\\PRN211\\Code\\PRN_ASSG2\\Assignment_PRN\\frmLogin\\frmLogin.csproj": {}
   },
   "projects": {
-    "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\DataAccess\\DataAccess.csproj": {
+    "D:\\Learning\\SEM5\\PRN211\\Code\\PRN_ASSG2\\Assignment_PRN\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "D:\\Learning\\SEM5\\PRN211\\Code\\PRN_ASSG2\\Assignment_PRN\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\DataAccess\\DataAccess.csproj",
+        "projectPath": "D:\\Learning\\SEM5\\PRN211\\Code\\PRN_ASSG2\\Assignment_PRN\\DataAccess\\DataAccess.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\DataAccess\\obj\\",
+        "outputPath": "D:\\Learning\\SEM5\\PRN211\\Code\\PRN_ASSG2\\Assignment_PRN\\DataAccess\\obj\\",
+=======
+    "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\frmLogin\\frmLogin.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\DataAccess\\DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\DataAccess\\DataAccess.csproj",
+        "projectName": "DataAccess",
+        "projectPath": "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\DataAccess\\DataAccess.csproj",
+        "packagesPath": "C:\\Users\\thong\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\DataAccess\\obj\\",
+>>>>>>> b8909f2bf57f46f2146f8a79c04c8085842456f5
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\thong\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -88,20 +102,31 @@
         }
       }
     },
-    "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\frmLogin\\frmLogin.csproj": {
+<<<<<<< HEAD
+    "D:\\Learning\\SEM5\\PRN211\\Code\\PRN_ASSG2\\Assignment_PRN\\frmLogin\\frmLogin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\frmLogin\\frmLogin.csproj",
+        "projectUniqueName": "D:\\Learning\\SEM5\\PRN211\\Code\\PRN_ASSG2\\Assignment_PRN\\frmLogin\\frmLogin.csproj",
         "projectName": "frmLogin",
-        "projectPath": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\frmLogin\\frmLogin.csproj",
+        "projectPath": "D:\\Learning\\SEM5\\PRN211\\Code\\PRN_ASSG2\\Assignment_PRN\\frmLogin\\frmLogin.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\frmLogin\\obj\\",
+        "outputPath": "D:\\Learning\\SEM5\\PRN211\\Code\\PRN_ASSG2\\Assignment_PRN\\frmLogin\\obj\\",
+=======
+    "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\frmLogin\\frmLogin.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\frmLogin\\frmLogin.csproj",
+        "projectName": "frmLogin",
+        "projectPath": "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\frmLogin\\frmLogin.csproj",
+        "packagesPath": "C:\\Users\\thong\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\frmLogin\\obj\\",
+>>>>>>> b8909f2bf57f46f2146f8a79c04c8085842456f5
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\thong\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -116,8 +141,13 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\DataAccess\\DataAccess.csproj"
+<<<<<<< HEAD
+              "D:\\Learning\\SEM5\\PRN211\\Code\\PRN_ASSG2\\Assignment_PRN\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "D:\\Learning\\SEM5\\PRN211\\Code\\PRN_ASSG2\\Assignment_PRN\\DataAccess\\DataAccess.csproj"
+=======
+              "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Users\\thong\\Documents\\GitHub\\Assignment_PRN\\DataAccess\\DataAccess.csproj"
+>>>>>>> b8909f2bf57f46f2146f8a79c04c8085842456f5
               }
             }
           }

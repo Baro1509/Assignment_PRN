@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "gIi6yhuqjaOIv7SqaYYJUfL88plmjW7CJEUsNfqJ7lmlouWi31i/6sKshq+KzPr8S29rZ7HxnO1QEQ80KqM91w==",
+  "dgSpecHash": "CPdqd9ETSBn9xWPmqcgBXnq9DMVimwO5EqB6Jjh7QuV2bxPiyz/kBHlPBCrQCn21tX0sd92FCmA6HnnBS4sWrg==",
   "success": true,
   "projectFilePath": "D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\Ass02Solution\\BusinessObject\\BusinessObject.csproj",
   "expectedPackageFiles": [
@@ -56,12 +56,5 @@
     "C:\\Users\\ADMIN\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\Homework\\PRN211\\Assignment\\Assignment_PRN\\Ass02Solution\\BusinessObject\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
