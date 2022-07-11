@@ -34,6 +34,51 @@ namespace SalesWinApp
             cboCategoryID.Enabled = false;
             btnSave.Text = "Add to cart";
         }
+
+        private bool CheckValid()
+        {
+            if (cboCategoryID.SelectedIndex <= -1)
+            {
+                return false;
+            }
+            // Product name must have length in range [1,50]
+            if (txtProductName.Text.Length < 1 || txtProductName.Text.Length > 50)
+            {
+                return false;
+
+            }
+            // Weight must have length in range [1,50]
+            if (txtWeight.Text.Length < 1 || txtWeight.Text.Length > 50)
+            {
+                return false;
+
+            }
+
+            // Unit in stock must be an integer that is not negative and smaller than 10^9
+            int integer;
+            if (txtUnitInStock.Text.Length < 1 || txtUnitInStock.Text.Length > 9 || !int.TryParse(txtUnitInStock.Text, out integer))
+            {
+                return false;
+
+            }
+            if (integer < 0)
+            {
+                return false;
+            }
+
+            // Unit in stock must be an integer that is not negative and smaller than 10^9
+            decimal moneyValue;
+            if (txtUnitPrice.Text.Length < 1 || txtUnitPrice.Text.Length > 9 || !decimal.TryParse(txtUnitPrice.Text, out moneyValue))
+            {
+                return false;
+            }
+            if (moneyValue < 0)
+            {
+                return false;
+            }
+            return true;
+        }
+
         private void frmProductDetails_Load(object sender, EventArgs e)
         {
             txtProductId.Enabled = false;
@@ -56,23 +101,32 @@ namespace SalesWinApp
         {
             try
             {
-                var product = new Product
+                if (CheckValid())
                 {
-                    CategoryId = cboCategoryID.SelectedIndex + 1,
-                    ProductName = txtProductName.Text,
-                    UnitPrice = decimal.Parse(txtUnitPrice.Text),
-                    UnitsInStock = int.Parse(txtUnitInStock.Text),
-                    Weights = txtWeight.Text
-                };
-                ProductRepository = new ProductRepository();
-                if (InsertOrUpdate == false) //Insert Mode
-                {
-                    ProductRepository.Insert(product);
+                    var product = new Product
+                    {
+                        CategoryId = cboCategoryID.SelectedIndex + 1,
+                        ProductName = txtProductName.Text,
+                        UnitPrice = decimal.Parse(txtUnitPrice.Text),
+                        UnitsInStock = int.Parse(txtUnitInStock.Text),
+                        Weights = txtWeight.Text
+                    };
+                    ProductRepository = new ProductRepository();
+                    if (InsertOrUpdate == false) //Insert Mode
+                    {
+                        ProductRepository.Insert(product);
+                        MessageBox.Show("Insert product successfully");
+                    }
+                    else
+                    {
+                        product.ProductId = int.Parse(txtProductId.Text);
+                        ProductRepository.Update(product);
+                        MessageBox.Show("Update product successfully");
+                    }
                 }
                 else
                 {
-                    product.ProductId = int.Parse(txtProductId.Text);
-                    ProductRepository.Update(product);
+                    MessageBox.Show("Your input data is not valid!");
                 }
             }
             catch (Exception ex)
@@ -81,16 +135,7 @@ namespace SalesWinApp
             }
             finally
             {
-                if (InsertOrUpdate == false) //Insert Mode
-                {
-                    MessageBox.Show("Insert successfully");
-                }
-                else
-                {
-                    MessageBox.Show("Update successfully");
-                }
                 Close();
-
             }
         }
 

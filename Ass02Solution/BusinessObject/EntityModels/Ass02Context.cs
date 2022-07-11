@@ -28,7 +28,7 @@ namespace BusinessObject.EntityModels
             if (!optionsBuilder.IsConfigured)
             {
 
-                optionsBuilder.UseSqlServer("server=(local); database = Ass02;uid=sa;pwd=1;");
+                optionsBuilder.UseSqlServer("server=(local); database = Ass02;uid=sa;pwd=1234567890;");
 
 
             }

@@ -7,9 +7,10 @@ namespace SalesWinApp
     public partial class frmProducts : Form
     {
         public IProductRepositoy ProductRepository { get; set; }
-        Member mem;
+
+        readonly Member mem;
         public int RoleID;
-        Cart Cart;
+        readonly Cart Cart;
         BindingSource source;
         public frmProducts()
         {
@@ -22,7 +23,8 @@ namespace SalesWinApp
             RoleID = mem.RoleId;
         }
 
-        public frmProducts(Member mem, Cart cart) {
+        public frmProducts(Member mem, Cart cart)
+        {
             InitializeComponent();
             this.mem = mem;
             RoleID = mem.RoleId;
@@ -115,15 +117,15 @@ namespace SalesWinApp
                     ProductRepository = ProductRepository,
                     RoleID = RoleID
                 };
-                if (frmProductDetails.ShowDialog() == DialogResult.OK)
-                {
-                    ProductRepository = new ProductRepository();
-                    var products = ProductRepository.GetAllProducts();
-                    LoadProducts(products);
-                    //set focus product updated
-                    source.Position = source.Count - 1;
-                }
-            } else if (mem.RoleId == 2) {
+                frmProductDetails.ShowDialog();
+                ProductRepository = new ProductRepository();
+                var products = ProductRepository.GetAllProducts();
+                LoadProducts(products);
+                //set focus product updated
+                source.Position = source.Count - 1;
+            }
+            else if (mem.RoleId == 2)
+            {
                 frmCart frmCart = new frmCart(mem, Cart);
                 this.Close();
             }
@@ -166,14 +168,13 @@ namespace SalesWinApp
                         ProductRepository = ProductRepository,
                         RoleID = RoleID
                     };
-                    if (frmProductDetails.ShowDialog() == DialogResult.OK)
-                    {
-                        ProductRepository = new ProductRepository();
-                        var products = ProductRepository.GetAllProducts();
-                        LoadProducts(products);
-                        //Set focus product updated
-                        source.Position = source.Count - 1;
-                    }
+                    frmProductDetails.ShowDialog();
+                    ProductRepository = new ProductRepository();
+                    var products = ProductRepository.GetAllProducts();
+                    LoadProducts(products);
+                    //Set focus product updated
+                    source.Position = source.Count - 1;
+
                 }
                 catch (Exception ex)
                 {
@@ -225,18 +226,27 @@ namespace SalesWinApp
                 if (RoleID == 1) // Admin Role
                 {
                     var product = GetProduct();
-                    ProductRepository = new ProductRepository();
-                    ProductRepository.Delete(product);
-                    var products = ProductRepository.GetAllProducts();
-                    LoadProducts(products);
-                }else if (mem.RoleId == 2) { //User role add to cart
+                    if (MessageBox.Show(this, $"Are you sure to delete {product.ProductName}?", "Delete a product", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                    {
+                        ProductRepository = new ProductRepository();
+                        ProductRepository.Delete(product);
+                        var products = ProductRepository.GetAllProducts();
+                        LoadProducts(products);
+                    }
+
+                }
+                else if (mem.RoleId == 2)
+                { //User role add to cart
                     var product = GetProduct();
                     ProductRepository = new ProductRepository();
                     product = ProductRepository.GetProductByID(product.ProductId);
                     //Check if item already in cart to increase or decrease
-                    if (Cart.CheckProduct(product)) {
+                    if (Cart.CheckProduct(product))
+                    {
                         Cart.UpdateProduct(product);
-                    } else {
+                    }
+                    else
+                    {
                         Cart.AddProduct(product);
                     }
                 }
