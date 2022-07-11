@@ -7,9 +7,9 @@ namespace SalesWinApp
     public partial class frmProducts : Form
     {
         public IProductRepositoy ProductRepository { get; set; }
-        Member mem;
+        public Member mem;
         public int RoleID;
-        Cart Cart;
+        public Cart Cart;
         BindingSource source;
         public frmProducts()
         {
@@ -75,11 +75,6 @@ namespace SalesWinApp
                     btnDelete.Enabled = false;
                     btnCreate.Enabled = false;
                 }
-                if (RoleID != 1)
-                {
-                    btnDelete.Enabled = false;
-                    btnCreate.Enabled = false;
-                }
             }
             catch (Exception ex)
             {
@@ -102,6 +97,7 @@ namespace SalesWinApp
             ProductRepository = new ProductRepository();
             var products = ProductRepository.GetAllProducts();
             LoadProducts(products);
+            btnDelete.Enabled = true;
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
@@ -124,8 +120,14 @@ namespace SalesWinApp
                     source.Position = source.Count - 1;
                 }
             } else if (mem.RoleId == 2) {
-                frmCart frmCart = new frmCart(mem, Cart);
-                this.Close();
+                //view cart
+                if (Cart != null) {
+                    frmCart frmCart = new frmCart(mem, Cart);
+                    frmCart.Show();
+                    this.Close();
+                } else {
+                    MessageBox.Show("Cart is empty, please add product to view", "View cart");
+                }
             }
 
         }
@@ -229,7 +231,7 @@ namespace SalesWinApp
                     ProductRepository.Delete(product);
                     var products = ProductRepository.GetAllProducts();
                     LoadProducts(products);
-                }else if (mem.RoleId == 2) { //User role add to cart
+                } else if (mem.RoleId == 2) { //User role add to cart
                     var product = GetProduct();
                     ProductRepository = new ProductRepository();
                     product = ProductRepository.GetProductByID(product.ProductId);

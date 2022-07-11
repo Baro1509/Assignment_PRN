@@ -14,7 +14,7 @@ namespace SalesWinApp
     public partial class frmMain : Form
     {
         Member mem;   
-        Cart cart;
+        Cart Cart;
         public frmMain()
         {
             InitializeComponent();
@@ -23,6 +23,7 @@ namespace SalesWinApp
         {
             InitializeComponent();
             this.mem = mem;
+            Cart = new Cart(mem);
         }
         private void authorized(int role)
         {
@@ -42,6 +43,7 @@ namespace SalesWinApp
                 menuManageProduct.Visible = true;
                 menuManageMember.Visible = true;
                 cartToolStripMenuItem.Visible = false;
+                btnBuyProduct.Enabled = false;
             }
         }
         private void frmMain_Load(object sender, EventArgs e)
@@ -95,7 +97,8 @@ namespace SalesWinApp
         }
 
         private void btnBuyProduct_Click(object sender, EventArgs e) {
-
+            frmProducts frmProducts = new frmProducts(mem, Cart);
+            frmProducts.Show();
         }
     }
 }
