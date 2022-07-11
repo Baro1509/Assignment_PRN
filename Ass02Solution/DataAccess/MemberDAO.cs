@@ -72,7 +72,7 @@ namespace DataAccess
             try
             {
                 Ass02Context ctx = new Ass02Context();
-                ctx.Entry<Member>(member).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                ctx.Members.Update(member);
                 ctx.SaveChanges();
             }
             catch (Exception ex) { throw new Exception(ex.Message); }
@@ -89,17 +89,17 @@ namespace DataAccess
             catch (Exception ex) { throw new Exception(ex.Message); }
         }
 
-        public string checkLogin(Member member)
+        public int checkLogin(Member member)
         {
-            string mem = "";
+            int role ;
             try
             {
                 Ass02Context ctx = new Ass02Context();
-                mem = ctx.Members.Where(m => m.Email.Equals(member.Email) && m.Passwords.Equals(member.Passwords)).Select(r => r.RoleId).FirstOrDefault().ToString();
+                role = ctx.Members.Where(m => m.Email.Equals(member.Email) && m.Passwords.Equals(member.Passwords)).Select(r => r.RoleId).FirstOrDefault();
 
             }
             catch (Exception ex) { throw new Exception(ex.Message); }
-            return mem;
+            return role;
         }
         public Member GetMember(Member mem)
         {

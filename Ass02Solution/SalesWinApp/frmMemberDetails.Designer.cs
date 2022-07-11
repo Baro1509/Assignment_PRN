@@ -202,6 +202,7 @@ namespace SalesWinApp
             this.btnCancel.TabIndex = 13;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
@@ -212,6 +213,7 @@ namespace SalesWinApp
             this.btnSave.TabIndex = 16;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // lbCountry
             // 
@@ -240,6 +242,7 @@ namespace SalesWinApp
             this.Controls.Add(tblMember);
             this.Name = "frmMemberDetails";
             this.Text = "Member Details";
+            this.Load += new System.EventHandler(this.frmMemberDetails_Load);
             tblMember.ResumeLayout(false);
             tblMember.PerformLayout();
             this.tblButton.ResumeLayout(false);

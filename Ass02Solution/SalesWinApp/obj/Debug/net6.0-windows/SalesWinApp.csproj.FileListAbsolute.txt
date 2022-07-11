@@ -284,3 +284,5 @@ C:\Users\Admin\Desktop\VSCODE\C#\Ass02Solution\SalesWinApp\obj\Debug\net6.0-wind
 C:\Users\Admin\Desktop\VSCODE\C#\Ass02Solution\SalesWinApp\obj\Debug\net6.0-windows\SalesWinApp.pdb
 C:\Users\Admin\Desktop\VSCODE\C#\Ass02Solution\SalesWinApp\obj\Debug\net6.0-windows\SalesWinApp.genruntimeconfig.cache
 C:\Users\Admin\Desktop\VSCODE\C#\Ass02Solution\SalesWinApp\obj\Debug\net6.0-windows\ref\SalesWinApp.dll
+C:\Users\thong\Documents\GitHub\Assignment_PRN\Ass02Solution\SalesWinApp\obj\Debug\net6.0-windows\SalesWinApp.frmCart.resources
+C:\Users\thong\Documents\GitHub\Assignment_PRN\Ass02Solution\SalesWinApp\bin\Debug\net6.0-windows\appsettings.json

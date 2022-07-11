@@ -39,8 +39,8 @@ public partial class frmLogin : Form
                     Email = txtEmail.Text,
                     Passwords = txtPassword.Text
                 };
-                string role = MemberDAO.Instance.checkLogin(member);
-                if (role=="1"|role=="2")
+                int role = MemberDAO.Instance.checkLogin(member);
+                if (role==1|role==2)
                 {
                     Member mem=MemberDAO.Instance.GetMember(member);
                     var frm = new frmMain(mem);
