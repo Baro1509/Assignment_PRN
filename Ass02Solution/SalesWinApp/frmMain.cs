@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessObject.EntityModels;
+using DataAccess;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,14 +9,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BusinessObject.EntityModels;
-using DataAccess;
 namespace SalesWinApp
 {
     public partial class frmMain : Form
     {
-        Member mem;   
-        Cart Cart;
+        readonly Member mem;
+        readonly Cart Cart;
         public frmMain()
         {
             InitializeComponent();
@@ -27,13 +27,13 @@ namespace SalesWinApp
         }
         private void authorized(int role)
         {
-            
+
             if (role == 2)
             {
-                menuManageMember.Visible= false;
+                menuManageMember.Visible = false;
                 menuManageOrder.Visible = false;
                 menuManageProduct.Visible = false;
-                menuManageMember.Visible=false;
+                menuManageMember.Visible = false;
                 cartToolStripMenuItem.Visible = true;
             }
             else
@@ -96,7 +96,8 @@ namespace SalesWinApp
 
         }
 
-        private void btnBuyProduct_Click(object sender, EventArgs e) {
+        private void btnBuyProduct_Click(object sender, EventArgs e)
+        {
             frmProducts frmProducts = new frmProducts(mem, Cart);
             frmProducts.Show();
         }

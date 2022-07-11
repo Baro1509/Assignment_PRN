@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BusinessObject.EntityModels;
+using DataAccess;
+using DataAccess.Repository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,39 +10,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DataAccess;
-using BusinessObject.EntityModels;
 
 
-namespace SalesWinApp {
-    public partial class frmCart : Form {
-        Member Member;
+namespace SalesWinApp
+{
+    public partial class frmCart : Form
+    {
+        readonly Member Member;
         Cart Cart;
         BindingSource source;
 
-        public frmCart() {
+        public frmCart()
+        {
             InitializeComponent();
         }
 
-        public frmCart(Member member, Cart cart) {
+        public frmCart(Member member, Cart cart)
+        {
             InitializeComponent();
             this.Member = member;
             this.Cart = cart;
-            if (cart != null) {
+            if (cart != null)
+            {
                 LoadProducts(Cart.list);
             }
         }
 
-        public Product GetProduct(int id) {
-            foreach (Product product in Cart.list) {
-                if (product.ProductId == id) { 
+        public Product GetProduct(int id)
+        {
+            foreach (Product product in Cart.list)
+            {
+                if (product.ProductId == id)
+                {
                     return product;
                 }
             }
             return null;
         }
 
-        public void ClearText() {
+        public void ClearText()
+        {
             txtProductId.Text = string.Empty;
             txtProductName.Text = string.Empty;
             txtCategoryId.Text = string.Empty;
@@ -48,8 +58,10 @@ namespace SalesWinApp {
             txtWeight.Text = string.Empty;
         }
 
-        public void LoadProducts(IEnumerable<Product>? products) {
-            try {
+        public void LoadProducts(IEnumerable<Product>? products)
+        {
+            try
+            {
                 source = new BindingSource();
                 source.DataSource = products;
                 System.Diagnostics.Debug.WriteLine(products.Count());
@@ -70,31 +82,56 @@ namespace SalesWinApp {
 
                 dgvProducts.DataSource = null;
                 dgvProducts.DataSource = source;
-                if (products == null || products.Count() == 0) {
+                if (products == null || products.Count() == 0)
+                {
                     ClearText();
                     btnDelete.Enabled = false;
                     btnCheckout.Enabled = false;
                 }
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message, "Load product list");
             }
 
         }
 
-        private void btnDelete_Click(object sender, EventArgs e) {
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
             var product = Cart.FindProduct(int.Parse(txtProductId.Text));
-            if (product != null) { 
+            if (product != null)
+            {
                 Cart.DeleteProduct(product);
             }
             LoadProducts(Cart.list);
         }
 
-        private void btnCheckout_Click(object sender, EventArgs e) {
-            int id = CartDAO.Instance.AddOrder(Member);
-            foreach (var item in Cart.list) {
-                CartDAO.Instance.AddOrderDetail(id, item, 0);
+        private void btnCheckout_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ProductRepository productRepository = new ProductRepository();
+                int id = CartDAO.Instance.AddOrder(Member);
+                foreach (var item in Cart.list)
+                {
+                    if (productRepository.GetProductByID(item.ProductId).UnitsInStock >= item.UnitsInStock)
+                    {
+                        CartDAO.Instance.AddOrderDetail(id, item, 0);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Item {item.ProductName} is out of stock! This item will not be in your order.");
+                    }
+                }
+                Cart = null;
+                MessageBox.Show("Checkout successfully!");
+                Close();
             }
-            Cart = null;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Checkout");
+            }
+
         }
     }
 }

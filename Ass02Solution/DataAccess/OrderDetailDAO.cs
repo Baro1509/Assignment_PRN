@@ -1,17 +1,19 @@
-﻿using System;
+﻿using BusinessObject.EntityModels;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BusinessObject.EntityModels;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using System.ComponentModel.DataAnnotations;
 
 
 
-namespace DataAccess {
-    public class OrderDetailDAO {
+namespace DataAccess
+{
+    public class OrderDetailDAO
+    {
         private static OrderDetailDAO instance = null;
         private static readonly object instanceLock = new object();
         public static OrderDetailDAO Instance
@@ -30,16 +32,20 @@ namespace DataAccess {
         }
         public OrderDetailDAO() { }
 
-        public List<OrderDetail> GetOrderDetails() {
+        public List<OrderDetail> GetOrderDetails()
+        {
             List<OrderDetail> list;
-            try {
+            try
+            {
                 Ass02Context context = new Ass02Context();
                 list = context.OrderDetails.ToList();
 
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 throw new Exception(ex.Message);
             }
-            return list ;
+            return list;
         }
 
         public List<OrderDetail> GetOrdersDetailsByOID(int OrderID)
@@ -48,7 +54,7 @@ namespace DataAccess {
             try
             {
                 Ass02Context context = new Ass02Context();
-                orderDetails = context.OrderDetails.Where(OrderDetail=> OrderDetail.OrderId.Equals(OrderID)).ToList();
+                orderDetails = context.OrderDetails.Where(OrderDetail => OrderDetail.OrderId.Equals(OrderID)).ToList();
 
             }
             catch (Exception ex)
