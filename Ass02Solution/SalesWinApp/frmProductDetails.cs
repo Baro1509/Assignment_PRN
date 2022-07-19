@@ -68,7 +68,7 @@ namespace SalesWinApp
 
             // Unit in stock must be an integer that is not negative and smaller than 10^9
             decimal moneyValue;
-            if (txtUnitPrice.Text.Length < 1 || txtUnitPrice.Text.Length > 9 || !decimal.TryParse(txtUnitPrice.Text, out moneyValue))
+            if (txtUnitPrice.Text.Length < 1 || txtUnitPrice.Text.Length > 14 || !decimal.TryParse(txtUnitPrice.Text, out moneyValue))
             {
                 return false;
             }

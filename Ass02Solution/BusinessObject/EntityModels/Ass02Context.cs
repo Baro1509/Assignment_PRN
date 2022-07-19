@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 using System;
-using System.Collections.Generic;
 
 namespace BusinessObject.EntityModels
 {
@@ -27,9 +25,7 @@ namespace BusinessObject.EntityModels
         {
             if (!optionsBuilder.IsConfigured)
             {
-
-                optionsBuilder.UseSqlServer("server=(local); database = Ass02;uid=sa;pwd=1234567890;");
-
+                optionsBuilder.UseSqlServer("Server=(local);uid=sa;pwd=1234567890;database=Ass02;TrustServerCertificate=True");
             }
         }
 
@@ -74,7 +70,7 @@ namespace BusinessObject.EntityModels
                     .WithMany(p => p.Members)
                     .HasForeignKey(d => d.RoleId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Members__RoleID__3F466844");
+                    .HasConstraintName("FK__Members__RoleID__0B91BA14");
             });
 
             modelBuilder.Entity<Order>(entity =>
@@ -95,13 +91,13 @@ namespace BusinessObject.EntityModels
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.MemberId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Orders__MemberID__403A8C7D");
+                    .HasConstraintName("FK__Orders__MemberID__0C85DE4D");
             });
 
             modelBuilder.Entity<OrderDetail>(entity =>
             {
                 entity.HasKey(e => new { e.OrderId, e.ProductId })
-                    .HasName("PK__OrderDet__08D097C17CDFA9D1");
+                    .HasName("PK__OrderDet__08D097C1F60E091C");
 
                 entity.Property(e => e.OrderId).HasColumnName("OrderID");
 
@@ -113,13 +109,13 @@ namespace BusinessObject.EntityModels
                     .WithMany(p => p.OrderDetails)
                     .HasForeignKey(d => d.OrderId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__OrderDeta__Order__412EB0B6");
+                    .HasConstraintName("FK__OrderDeta__Order__0D7A0286");
 
                 entity.HasOne(d => d.Product)
                     .WithMany(p => p.OrderDetails)
                     .HasForeignKey(d => d.ProductId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__OrderDeta__Produ__4222D4EF");
+                    .HasConstraintName("FK__OrderDeta__Produ__0E6E26BF");
             });
 
             modelBuilder.Entity<Product>(entity =>
@@ -142,7 +138,7 @@ namespace BusinessObject.EntityModels
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.CategoryId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Products__Catego__440B1D61");
+                    .HasConstraintName("FK__Products__Catego__10566F31");
             });
 
             modelBuilder.Entity<Role>(entity =>

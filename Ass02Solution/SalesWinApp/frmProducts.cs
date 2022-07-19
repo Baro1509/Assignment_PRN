@@ -7,9 +7,10 @@ namespace SalesWinApp
     public partial class frmProducts : Form
     {
         public IProductRepositoy ProductRepository { get; set; }
-        public Member mem;
+
+        readonly Member mem;
         public int RoleID;
-        public Cart Cart;
+        readonly Cart Cart;
         BindingSource source;
         public frmProducts()
         {
@@ -76,6 +77,11 @@ namespace SalesWinApp
                     btnDelete.Enabled = false;
                     btnCreate.Enabled = false;
                 }
+                if (RoleID != 1)
+                {
+                    btnDelete.Enabled = false;
+                    btnCreate.Enabled = false;
+                }
             }
             catch (Exception ex)
             {
@@ -98,7 +104,6 @@ namespace SalesWinApp
             ProductRepository = new ProductRepository();
             var products = ProductRepository.GetAllProducts();
             LoadProducts(products);
-            btnDelete.Enabled = true;
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
@@ -112,28 +117,17 @@ namespace SalesWinApp
                     ProductRepository = ProductRepository,
                     RoleID = RoleID
                 };
-                if (frmProductDetails.ShowDialog() == DialogResult.OK)
-                {
-                    ProductRepository = new ProductRepository();
-                    var products = ProductRepository.GetAllProducts();
-                    LoadProducts(products);
-                    //set focus product updated
-                    source.Position = source.Count - 1;
-                }
+                frmProductDetails.ShowDialog();
+                ProductRepository = new ProductRepository();
+                var products = ProductRepository.GetAllProducts();
+                LoadProducts(products);
+                //set focus product updated
+                source.Position = source.Count - 1;
             }
             else if (mem.RoleId == 2)
             {
-                //view cart
-                if (Cart != null)
-                {
-                    frmCart frmCart = new frmCart(mem, Cart);
-                    frmCart.Show();
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Cart is empty, please add product to view", "View cart");
-                }
+                frmCart frmCart = new frmCart(mem, Cart);
+                this.Close();
             }
 
         }
@@ -143,21 +137,14 @@ namespace SalesWinApp
             string search = txtSearch.Text;
             if (cboSearch.SelectedIndex == 0)
             {
-                if (search.Length < 1 || search.Length > 9 || int.TryParse(search, out _))
+                ProductRepository = new ProductRepository();
+                var product = ProductRepository.GetProductByID(int.Parse(search));
+                IEnumerable<Product>? result = new List<Product>();
+                if (product != null)
                 {
-                    ProductRepository = new ProductRepository();
-                    var product = ProductRepository.GetProductByID(int.Parse(search));
-                    IEnumerable<Product>? result = new List<Product>();
-                    if (product != null)
-                    {
-                        ((List<Product>)result).Add(product);
-                    }
-                    LoadProducts(result);
+                    ((List<Product>)result).Add(product);
                 }
-                else
-                {
-                    MessageBox.Show("ID must be an integer!");
-                }
+                LoadProducts(result);
             }
             if (cboSearch.SelectedIndex == 1)
             {
@@ -181,14 +168,13 @@ namespace SalesWinApp
                         ProductRepository = ProductRepository,
                         RoleID = RoleID
                     };
-                    if (frmProductDetails.ShowDialog() == DialogResult.OK)
-                    {
-                        ProductRepository = new ProductRepository();
-                        var products = ProductRepository.GetAllProducts();
-                        LoadProducts(products);
-                        //Set focus product updated
-                        source.Position = source.Count - 1;
-                    }
+                    frmProductDetails.ShowDialog();
+                    ProductRepository = new ProductRepository();
+                    var products = ProductRepository.GetAllProducts();
+                    LoadProducts(products);
+                    //Set focus product updated
+                    source.Position = source.Count - 1;
+
                 }
                 catch (Exception ex)
                 {
@@ -196,7 +182,18 @@ namespace SalesWinApp
                     MessageBox.Show(ex.Message, "Update product");
                 }
             }
-
+            if (RoleID == 2) //Member role
+            {
+                frmProductDetails frmProductDetails = new frmProductDetails
+                {
+                    Text = "View product",
+                    InsertOrUpdate = true,
+                    Product = GetProduct(),
+                    ProductRepository = ProductRepository,
+                    RoleID = RoleID
+                };
+                frmProductDetails.ShowDialog();
+            }
         }
 
         private Product GetProduct()
@@ -229,10 +226,14 @@ namespace SalesWinApp
                 if (RoleID == 1) // Admin Role
                 {
                     var product = GetProduct();
-                    ProductRepository = new ProductRepository();
-                    ProductRepository.Delete(product);
-                    var products = ProductRepository.GetAllProducts();
-                    LoadProducts(products);
+                    if (MessageBox.Show(this, $"Are you sure to delete {product.ProductName}?", "Delete a product", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                    {
+                        ProductRepository = new ProductRepository();
+                        ProductRepository.Delete(product);
+                        var products = ProductRepository.GetAllProducts();
+                        LoadProducts(products);
+                    }
+
                 }
                 else if (mem.RoleId == 2)
                 { //User role add to cart
@@ -246,7 +247,6 @@ namespace SalesWinApp
                     }
                     else
                     {
-                        product.UnitsInStock = 1;
                         Cart.AddProduct(product);
                     }
                 }

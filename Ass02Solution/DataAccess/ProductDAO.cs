@@ -124,7 +124,7 @@ public class ProductDAO
         try
         {
             using Ass02Context context = new Ass02Context();
-            var pro = context.Products.Find(product.ProductId);
+            var pro = context.Products.FirstOrDefault(x => x.ProductId == product.ProductId);
             context.Products.Remove(pro);
             context.SaveChanges();
         }
