@@ -8,7 +8,7 @@ namespace DataAccess.Repository;
 
 public interface IMemberRepository
 {
-    public Member Check(string email, string passwords);
+    public Member? Check(string email, string passwords);
     public Member Get(int memberId);
     public void Update(Member member);
 

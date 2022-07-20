@@ -17,14 +17,6 @@ namespace BusinessObject.EntityModels
         {
         }
 
-        private static string GetConnectionString()
-        {
-            var builder = new ConfigurationBuilder().AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-            IConfigurationRoot configuration = builder.Build();
-            string connectionString = configuration.GetSection("ConnectionStrings").GetSection("Ass03DB").Value;
-            return connectionString;
-        }
-
         public virtual DbSet<Category> Categories { get; set; } = null!;
         public virtual DbSet<Member> Members { get; set; } = null!;
         public virtual DbSet<Order> Orders { get; set; } = null!;
@@ -34,7 +26,7 @@ namespace BusinessObject.EntityModels
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(GetConnectionString());
+            optionsBuilder.UseSqlServer("server=(local);uid=sa;pwd=1234567890;database=Ass02;TrustServerCertificate=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

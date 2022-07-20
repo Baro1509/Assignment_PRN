@@ -19,9 +19,9 @@ public class MemberDAO
             }
         }
     }
-    public Member Check(string email, string passwords)
+    public Member? Check(string email, string passwords)
     {
-        Member loginMember = null;
+        Member? loginMember = null;
         try
         {
             using var context = new Ass02Context();

@@ -1,4 +1,5 @@
-﻿using DataAccess.Repository;
+﻿using BusinessObject.EntityModels;
+using DataAccess.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,14 +12,66 @@ namespace eStore
         // GET: MembersController
         public ActionResult Index()
         {
-            var members = memberRepository.GetAll();
-            return View(members);
+            return View();
+        }
+
+        // GET: MembersController
+        public ActionResult IndexAdmin()
+        {
+            return View();
         }
 
         // GET: MembersController/Details/5
         public ActionResult Details(int id)
         {
             return View();
+        }
+
+        // GET: MembersController/Login
+        public ActionResult Login(string message)
+        {
+            ViewData["Message"] = message;
+            return View("Login");
+        }
+
+        // POST: MembersController/Login
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(Member member)
+        {
+            Console.WriteLine("Login Member checked!");
+            string message = "";
+            try
+            {
+                Member loginMember = memberRepository.Check(member.Email, member.Passwords);
+                if (loginMember != null && loginMember.RoleId == 1) //admin
+                {
+                    HttpContext.Session.SetInt32("LoginMemberId", loginMember.MemberId);
+                    HttpContext.Session.SetInt32("LoginMemberRoleId", loginMember.RoleId);
+                    return RedirectToAction(nameof(IndexAdmin));
+                }
+                if (loginMember != null && loginMember.RoleId == 2) //member
+                {
+                    HttpContext.Session.SetInt32("LoginMemberId", loginMember.MemberId);
+                    HttpContext.Session.SetInt32("LoginMemberRoleId", loginMember.RoleId);
+                    return RedirectToAction(nameof(Index));
+                }
+                message = "Incorrect email or password";
+                return Login(message);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Message = ex.Message;
+                return RedirectToAction(nameof(Login));
+            }
+        }
+
+        // GET: MembersController/Logout
+        public ActionResult Logout()
+        {
+            HttpContext.Session.Remove("LoginMemberId");
+            HttpContext.Session.Remove("LoginMemberRoleId");
+            return RedirectToAction(nameof(Login));
         }
 
         // GET: MembersController/Create

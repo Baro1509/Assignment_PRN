@@ -9,7 +9,7 @@ namespace DataAccess.Repository;
 
 public class MemberRepository : IMemberRepository
 {
-    public Member Check(string email, string passwords) => MemberDAO.Instance.Check(email, passwords);
+    public Member? Check(string email, string passwords) => MemberDAO.Instance.Check(email, passwords);
 
     public Member Get(int memberId) => MemberDAO.Instance.Get(memberId);
 
