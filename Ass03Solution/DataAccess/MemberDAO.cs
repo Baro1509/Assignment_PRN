@@ -34,6 +34,21 @@ public class MemberDAO
         return loginMember;
     }
 
+    public Member? Check(string email)
+    {
+        Member? loginMember = null;
+        try
+        {
+            using var context = new Ass02Context();
+            loginMember = context.Members.Where(x => x.Email == email).FirstOrDefault();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+        return loginMember;
+    }
+
     public Member Get(int memberId)
     {
         Member member = null;
@@ -88,5 +103,43 @@ public class MemberDAO
             throw new Exception(ex.Message);
         }
         return members;
+    }
+
+    public void Add(Member member)
+    {
+        try
+        {
+            Member _member = member;
+            using var context = new Ass02Context();
+            context.Members.Add(_member);
+            context.SaveChanges();
+
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+    }
+
+    public void Delete(int id)
+    {
+        try
+        {
+            Member _member = Get(id);
+            if (_member != null)
+            {
+                using var context = new Ass02Context();
+                context.Members.Remove(_member);
+                context.SaveChanges();
+            }
+            else
+            {
+                throw new Exception("The member does not already exist");
+            }
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
     }
 }

@@ -79,6 +79,41 @@ namespace eStore
             }
         }
 
+        // GET: MembersController/Register
+        public ActionResult Register(string message)
+        {
+            ViewData["message"] = message;
+            return View();
+        }
+
+        // POST: MembersController/Register
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(Member member)
+        {
+            string message = "";
+            try
+            {
+                Member? loginMember = memberRepository.Check(member.Email);
+                if (loginMember != null) //duplicated email
+                {
+                    message = "This email is already taken!";
+                    return Register(message);
+                }
+                else
+                {
+                    memberRepository.Add(member);
+                    message = "Register successfully! Please login to continue shopping!";
+                }
+                return Login(message);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Message = ex.Message;
+                return RedirectToAction(nameof(Login));
+            }
+        }
+
         // GET: MembersController/Logout
         public ActionResult Logout()
         {
@@ -111,28 +146,94 @@ namespace eStore
         // GET: MembersController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            int? memberId = HttpContext.Session.GetInt32("LoginMemberId");
+            int? roleId = HttpContext.Session.GetInt32("LoginMemberRoleId");
+            if (memberId != null && roleId != null && memberId == id && roleId == 2) //only login member can edit their profile
+            {
+                Member member = memberRepository.Get(id);
+                if (member == null)
+                {
+                    return NotFound();
+                }
+                return View(member);
+            }
+            if (roleId != null && roleId == 2)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            if (roleId != null && roleId == 1)
+            {
+                return RedirectToAction(nameof(IndexAdmin));
+            }
+            return RedirectToAction(nameof(Login));
         }
 
         // POST: MembersController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, Member member)
         {
-            try
+            Console.WriteLine("Edit");
+            if (id == member.MemberId)
             {
-                return RedirectToAction(nameof(Profile));
+                int? memberId = HttpContext.Session.GetInt32("LoginMemberId");
+                int? roleId = HttpContext.Session.GetInt32("LoginMemberRoleId");
+                if (memberId != null && roleId != null && memberId == id && roleId == 2) //only login member can edit their profile
+                {
+                    try
+                    {
+                        memberRepository.Update(member);
+                        return RedirectToAction(nameof(Profile), new { id = id });
+                    }
+                    catch (Exception ex)
+                    {
+                        ViewBag.Message = ex.Message;
+                        return View();
+                    }
+                }
+                if (roleId != null && roleId == 2)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                if (roleId != null && roleId == 1)
+                {
+                    return RedirectToAction(nameof(IndexAdmin));
+                }
+                return Login("You must login to edit profile");
             }
-            catch
+            return NotFound();
+        }
+
+        // GET: MembersController/List
+        public ActionResult List()
+        {
+            int? roleId = HttpContext.Session.GetInt32("LoginMemberRoleId");
+            if (roleId != null && roleId == 1)
             {
-                return View();
+                var members = memberRepository.GetAll();
+                return View(members);
             }
+            if (roleId != null && roleId == 2)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            return Login("You must be admin to view member list");
         }
 
         // GET: MembersController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id, string message)
         {
-            return View();
+            ViewData["Message"] = message;
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var member = memberRepository.Get(id);
+            if (member == null)
+            {
+                return NotFound();
+            }
+            return View(member);
         }
 
         // POST: MembersController/Delete/5
@@ -142,10 +243,23 @@ namespace eStore
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                int? memberId = HttpContext.Session.GetInt32("LoginMemberId");
+                if (memberId != null && memberId == id)
+                {
+                    string message = "You cannot delete yourself!";
+                    return Delete(id, message);
+                }
+                int? roleId = HttpContext.Session.GetInt32("LoginMemberRoleId");
+                if (roleId == null || roleId != 1)
+                {
+                    return Login("You must be admin to delete member!");
+                }
+                memberRepository.Delete(id);
+                return RedirectToAction(nameof(List));
             }
-            catch
+            catch (Exception ex)
             {
+                ViewBag.Message = ex.Message;
                 return View();
             }
         }
