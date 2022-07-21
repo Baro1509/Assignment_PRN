@@ -8,23 +8,37 @@ namespace eStore
     public class MembersController : Controller
     {
         readonly IMemberRepository memberRepository = new MemberRepository();
-        public MembersController() => memberRepository = new MemberRepository();
+        public MembersController()
+        {
+            memberRepository = new MemberRepository();
+        }
         // GET: MembersController
         public ActionResult Index()
         {
+            ViewBag.loginMemberId = HttpContext.Session.GetInt32("LoginMemberId");
             return View();
         }
 
         // GET: MembersController
         public ActionResult IndexAdmin()
         {
+            ViewBag.loginMemberId = HttpContext.Session.GetInt32("LoginMemberId");
             return View();
         }
 
-        // GET: MembersController/Details/5
-        public ActionResult Details(int id)
+        // GET: MembersController/Profile/5
+        public ActionResult Profile(int id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var member = memberRepository.Get(id);
+            if (member == null)
+            {
+                return NotFound();
+            }
+            return View(member);
         }
 
         // GET: MembersController/Login
@@ -39,11 +53,10 @@ namespace eStore
         [ValidateAntiForgeryToken]
         public ActionResult Login(Member member)
         {
-            Console.WriteLine("Login Member checked!");
             string message = "";
             try
             {
-                Member loginMember = memberRepository.Check(member.Email, member.Passwords);
+                Member? loginMember = memberRepository.Check(member.Email, member.Passwords);
                 if (loginMember != null && loginMember.RoleId == 1) //admin
                 {
                     HttpContext.Session.SetInt32("LoginMemberId", loginMember.MemberId);
@@ -87,7 +100,7 @@ namespace eStore
         {
             try
             {
-                return RedirectToAction(nameof(Details));
+                return RedirectToAction(nameof(Profile));
             }
             catch
             {
@@ -108,7 +121,7 @@ namespace eStore
         {
             try
             {
-                return RedirectToAction(nameof(Details));
+                return RedirectToAction(nameof(Profile));
             }
             catch
             {
