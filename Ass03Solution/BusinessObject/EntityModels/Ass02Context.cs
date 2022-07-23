@@ -1,8 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
 
 namespace BusinessObject.EntityModels
 {
@@ -26,7 +22,7 @@ namespace BusinessObject.EntityModels
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=(local);uid=sa;pwd=1234567890;database=Ass02;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer("server=(local);uid=sa;pwd=1;database=Ass02;TrustServerCertificate=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
