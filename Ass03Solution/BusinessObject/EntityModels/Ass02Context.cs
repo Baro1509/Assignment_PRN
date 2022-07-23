@@ -26,7 +26,7 @@ namespace BusinessObject.EntityModels
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=(local);uid=sa;pwd=1234567890;database=Ass02;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer("server=(local);uid=sa;pwd=12345678;database=Ass03;TrustServerCertificate=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

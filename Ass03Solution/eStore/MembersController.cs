@@ -2,15 +2,18 @@
 using DataAccess.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using static Microsoft.Extensions.DependencyInjection.SessionServiceCollectionExtensions;
 
 namespace eStore
 {
     public class MembersController : Controller
     {
-        readonly IMemberRepository memberRepository = new MemberRepository();
+        readonly IMemberRepository memberRepository = null;
+        OrderRepository orderRepository = null;
         public MembersController()
         {
             memberRepository = new MemberRepository();
+            orderRepository = new OrderRepository();
         }
         // GET: MembersController
         public ActionResult Index()
@@ -67,6 +70,17 @@ namespace eStore
                 {
                     HttpContext.Session.SetInt32("LoginMemberId", loginMember.MemberId);
                     HttpContext.Session.SetInt32("LoginMemberRoleId", loginMember.RoleId);
+
+                    //set order
+                    DateTime now = DateTime.Now;
+                    Order order = new Order() {
+                        MemberId = loginMember.MemberId,
+                        OrderDate = now
+                    };
+                    orderRepository.Insert(order);
+                    int orderId = orderRepository.GetOrderId(loginMember.MemberId, now);
+                    HttpContext.Session.SetInt32("orderId", orderId);
+
                     return RedirectToAction(nameof(Index));
                 }
                 message = "Incorrect email or password";

@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using BusinessObject.EntityModels;
 namespace DataAccess.Repository
 {
-    internal class OrderDetailRepository
+    public class OrderDetailRepository : IOrderDetailRepository
     {
+        public List<OrderDetail> GetOrdersDetailsByOID(int orderId) => OrderDetailDAO.Instance.GetOrdersDetailsByOID(orderId);
+        public void Insert(OrderDetail orderDetail) => OrderDetailDAO.Instance.Insert(orderDetail);
+        public OrderDetail GetOrderDetail(int orderId, int productId) => OrderDetailDAO.Instance.GetOrderDetail(orderId, productId);
+        public void Update(OrderDetail orderDetail) => OrderDetailDAO.Instance.Update(orderDetail);
     }
 }
