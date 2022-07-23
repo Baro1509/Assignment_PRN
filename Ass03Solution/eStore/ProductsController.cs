@@ -8,7 +8,13 @@ namespace eStore
     public class ProductsController : Controller
     {
         IProductRepository productRepository = null;
-        public ProductsController() => productRepository = new ProductRepository();
+        IOrderDetailRepository orderDetailRepository = null;
+        DateTime now;
+        public ProductsController() {
+            productRepository = new ProductRepository();
+            orderDetailRepository = new OrderDetailRepository();
+            now = DateTime.Now;
+        }
 
         // GET: ProductsController
         public ActionResult Index()
@@ -153,9 +159,29 @@ namespace eStore
         [ValidateAntiForgeryToken]
         public ActionResult Buy(int id, IFormCollection collection) {
             try {
+                //Update product in db
                 Product p = productRepository.Get(id);
                 p.UnitsInStock -= 1;
                 productRepository.Update(p);
+
+                //get order detail
+                int orderId = (int)HttpContext.Session.GetInt32("orderId");
+                int memberId = (int)HttpContext.Session.GetInt32("LoginMemberId");
+                OrderDetail detail = orderDetailRepository.GetOrderDetail(orderId, p.ProductId);
+
+                if (detail == null) {
+                    detail = new OrderDetail() {
+                        OrderId = orderId,
+                        ProductId = p.ProductId,
+                        UnitPrice = p.UnitPrice,
+                        Quantity = 1,
+                        Discount = 0
+                    };
+                    orderDetailRepository.Insert(detail);
+                } else {
+                    detail.Quantity += 1;
+                    orderDetailRepository.Update(detail);
+                }
                 return RedirectToAction(nameof(UserIndex));
             } catch (Exception ex) {
                 ViewBag.Message = ex.Message;
